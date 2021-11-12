@@ -1,0 +1,137 @@
+﻿#header{
+	width:1000px;
+	margin:0 auto 7px;
+}
+.head_top{ background-color:#ffffff; height:35px;}
+.head_top .wel_date{
+	display:inline;
+	margin:10px 0 0 15px;
+}
+.head_top .Back{
+	display:inline;
+}
+.head_top .Back li{
+	float:left;
+	height:35px;
+	background:url(../images/line01.gif) no-repeat right center;
+	padding:0 10px;
+	line-height:35px;
+}
+.head_top li.user_info{ position:relative;z-index:100}
+.head_top li.user_info em{ display:inline-block; }
+.head_top li.user_info em a{ font-weight:bold; padding-right:15px; background:url(../images/icon_header_down.gif) no-repeat right center}
+.head_top li.on em a{  background:url(../images/icon_header_up.gif) no-repeat right center}
+.head_top li dl{ display:none; position:absolute; left:0; top:35px; padding:0 10px; width:100px; background:#fff; border:1px solid #e3e3e3; box-shadow:0px 3px 3px #999; z-index:100000}
+.head_top li dd{ line-height:30px; border-bottom:1px dotted #ccc}
+
+.head_top .Back a.login{
+	display:inline-block;
+	background:url(../images/login_icon.gif) no-repeat left center;
+	height:35px;
+	padding-left:25px;
+	line-height:35px;
+}
+.banner{
+	width:1000px;
+	height:173px;
+	margin:0 auto;
+	position:relative;
+}
+.banner a.backindex{
+	display:block;
+	width:440px;
+	height:102px;
+	position:absolute;
+	left:15px;
+	top:37px;
+}
+.banner p{
+display:none;
+	position:absolute;
+	top:89px;
+	right:18px;
+}
+#nav {
+	overflow:hidden;
+}
+#nav .nav_t{ height:44px; background-color:#1561af; padding-left:10px;-webkit-border-radius: 3px 3px 0 0;-moz-border-radius: 3px 3px 0 0;border-radius: 3px 3px 0 0;}
+#nav .nav_t .nav_ul li{ height:38px; padding:6px 10px 0; float:left;font-size:18px; font-family:"寰蒋闆呴粦"; background:url(../images/nav_line.gif) no-repeat right top; overflow:hidden; zoom:1}
+#nav .nav_t .nav_ul li a{
+	display:block;
+	float:left;
+	height:33px;
+	padding:5px 15px 0;
+	color:#ffffff
+}
+#nav .nav_t .nav_ul li.cur a{ background:url(../images/nav_cur_l_bg.png) no-repeat left top; display:block; float:left; padding:0 0 0 14px; height:38px; color:#1561af;}
+#nav .nav_t .nav_ul li.cur a .cat_tit{ display:block; background:url(../images/nav_cur_r_bg.png) no-repeat right top; height:31px; float:left; padding:7px 15px 0 0; cursor:pointer;}
+#nav .nav_t .search{
+	display:inline;
+	margin:9px 11px 0 0;
+}
+#nav .nav_t .search li{
+	float:left;
+}
+#nav .nav_t .search li .ser_icon{
+	background:url(../images/icon01.gif) no-repeat;
+	width:26px;
+	height:28px;
+	display:block;
+}
+.case{ background:url(../images/subnav_bg.gif) repeat-x; height:47px; overflow:hidden; zoom:1}
+.case p{ padding:16px 0 0 15px; }
+.case p a{ padding:0 10px;}
+.ipt01{
+	width:158px;
+	height:28px;
+	line-height:28px;
+	padding:0 5px;
+	font-size:16px;
+	border:none;
+	background-color:#ffffff
+}
+.btn01{
+	background:url(../images/btn01.png) no-repeat;
+	width:49px;
+	height:28px;
+	border:none;
+	cursor:pointer;
+}
+.New_news{ padding:14px 0 0 8px;}
+.New_news h2{ padding-left:20px; font-size:14px; color:#1561af}
+#demot{ float:left; width:875px; margin-top:1px; overflow:hidden; zoom:1}
+#indemot{ float: left; width: 8000%;}
+#demot1{ float: left;}
+#demot2{ float: left;}
+#indemot em{ padding:0 8px;}
+.subnav3{ text-indent:235px}
+.subnav4{ text-indent:210px}
+
+
+
+
+.hi_li {
+    display: inline;
+    float: left;
+    margin-left: 5px;
+}
+
+.hi a {
+    background: rgba(0, 0, 0, 0) url("../images/moha.gif") no-repeat scroll left bottom;
+    display: block;
+    float: left;
+    height: 15px;
+    overflow: hidden;
+    text-indent: -100px;
+    width: 10px;
+    margin-top:10px;
+}
+
+}
+
+.tipped {
+    margin-top: -1px;
+}
+
+
+

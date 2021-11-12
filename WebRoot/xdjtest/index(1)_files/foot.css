@@ -1,0 +1,66 @@
+#foot {
+	background: rgb(239, 239, 239); margin: 10px auto 0px; padding: 25px 0px; width: 1000px; text-align: center; border-top-color: rgb(204, 204, 204); border-top-width: 2px; border-top-style: solid;
+}
+#foot h4 {
+	color: rgb(51, 51, 51); padding-bottom: 15px; font-weight: normal;
+}
+#foot h4 a:link {
+	color: rgb(51, 51, 51);
+}
+#foot h4 a:visited {
+	color: rgb(51, 51, 51);
+}
+#foot h4 a:hover {
+	color: rgb(21, 97, 175); text-decoration: underline;
+}
+#foot p {
+	line-height: 1.8;
+}
+.siteMap a:link {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+.siteMap a:hover {
+	color: rgb(255, 0, 0); text-decoration: underline;
+}
+.siteMap a:visited {
+	color: rgb(153, 0, 102);
+}
+.siteMap h2 {
+	background: url("../images/icon07.gif") no-repeat 10px rgb(245, 245, 245); padding: 10px 30px; font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå"; font-size: 16px; margin-bottom: 10px; border-bottom-color: rgb(227, 227, 227); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.siteMap h2 a:link {
+	color: rgb(21, 97, 175);
+}
+.siteMap h2 a:visited {
+	color: rgb(21, 97, 175);
+}
+.siteMap h2.last {
+	border: currentColor; border-image: none;
+}
+.siteMap dl {
+	line-height: 18px; overflow: hidden; padding-bottom: 10px; font-family: "ËÎÌå"; font-size: 12px; margin-bottom: 5px; border-bottom-color: rgb(227, 227, 227); border-bottom-width: 1px; border-bottom-style: dotted; -ms-zoom: 1;
+}
+.siteMap dt {
+	width: 130px; font-weight: bold; float: left;
+}
+.siteMap .no_child dt {
+	width: 640px;
+}
+.siteMap dd {
+	width: 500px; float: left; -ms-word-wrap: break-word;
+}
+.siteMap dd a {
+	margin-right: 1em; display: inline-block; white-space: nowrap;
+}
+.mistake {
+	width: 100%;
+}
+.mistake_title {
+	background: rgb(255, 248, 227); padding: 0px 15px; color: rgb(50, 50, 50); line-height: 25px; font-size: 12px; font-weight: bold;
+}
+.mistake_title span {
+	color: rgb(255, 0, 0); padding-right: 15px; float: right;
+}
+.mistake_info {
+	background: rgb(250, 250, 250); padding: 0px 15px; line-height: 25px; font-size: 12px;
+}

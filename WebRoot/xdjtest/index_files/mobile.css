@@ -1,0 +1,738 @@
+body {
+	margin: auto 0px; font-size: 12px;
+}
+ul {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+li {
+	list-style-type: none;
+}
+img {
+	width: 48px; height: 48px;
+}
+.boild {
+	font-weight: bold;
+}
+.cc30 {
+	color: rgb(204, 51, 0); font-family: Arial;
+}
+.c390 {
+	color: rgb(51, 153, 0); font-family: Arial; margin-right: 10px;
+}
+.c4899BE {
+	color: rgb(72, 153, 190); font-family: Arial;
+}
+.cf00 {
+	color: rgb(255, 0, 0); font-family: Arial;
+}
+tr {
+	cursor: pointer;
+}
+img {
+	border: 0px solid black; border-image: none;
+}
+a {
+	color: black; font-family: 宋体; text-decoration: none; cursor: pointer;
+}
+.centerimg {
+	left: 50%; width: 25px; height: 25px; margin-left: -12px; float: left; position: relative; background-image: url("http://static.xixik.com.cn/images/weather.png");
+}
+#img {
+	width: 25px; height: 25px; float: left; background-image: url("http://static.xixik.com.cn/images/weather.png");
+}
+.img {
+	float: left;
+}
+.centertwo {
+	left: 50%; width: 40px; height: 22px; padding-top: 3px; margin-left: -20px; float: left; position: relative;
+}
+#mobile1 {
+	width: 960px; height: 25px; line-height: 25px; overflow: hidden; cursor: pointer;
+}
+#mobile1 a {
+	color: rgb(0, 0, 0); padding-right: 5px;
+}
+#mobile1 div {
+	margin-right: 10px; float: left;
+}
+#mobile1 .divForecastWeather {
+	padding-right: 3px;
+}
+#mobile1 .divCurrentWeather {
+	padding-right: 3px;
+}
+#mobile2 {
+	text-align: center; overflow: hidden; cursor: pointer;
+}
+#mobile2 .mleft {
+	width: 70px; float: left;
+}
+#mobile2 .mright {
+	width: auto; float: left;
+}
+#mobile2 .wtname {
+	width: 70px; margin-top: 20px; float: left;
+}
+#mobile2 .wtname a {
+	font-size: 15px; font-weight: bold;
+}
+#mobile2 .order {
+	width: 70px; height: 20px; margin-top: 7px; float: left;
+}
+#mobile2 .wt {
+	width: 90px; float: left;
+}
+#mobile2 .wt2 {
+	width: 145px; margin-top: 1px; float: left;
+}
+#mobile2 .wtpic {
+	width: 100%; height: 20px; line-height: 25px; float: left;
+}
+#mobile2 .wtpath {
+	width: 100%; height: 18px; line-height: 18px; float: left;
+}
+#mobile2 .wtpath {
+	width: 100%; height: 18px; text-align: center; line-height: 18px; overflow: hidden; float: left;
+}
+.wtwt {
+	width: 100%; height: 18px; text-align: center; line-height: 18px; overflow: hidden; float: left;
+}
+.wtfx {
+	width: 100%; height: 18px; text-align: center; line-height: 18px; overflow: hidden; float: left;
+}
+#mobile2 a.wea_more {
+	background: url("../images/wea_arrow.gif") no-repeat 0px 30px; margin: 25px 2px 0px 0px; width: 11px; height: 120px; float: right;
+}
+#mobile2 .img {
+	margin: 0px 22px;
+}
+#mobile2 .day {
+	padding-right: 5px;
+}
+#mobile2 .red {
+	color: rgb(255, 0, 0);
+}
+#mobile2 .blue {
+	color: rgb(0, 102, 204);
+}
+#mobile3 {
+	width: auto; height: 70px; text-align: center; cursor: pointer;
+}
+#mobile3 a {
+	color: rgb(0, 0, 0);
+}
+#mobile3 .wtleft {
+	width: 70px; height: 70px; float: left;
+}
+#mobile3 .wtname {
+	width: 70px; height: 20px; margin-top: 15px; float: left;
+}
+#mobile3 .order {
+	width: 70px; height: 20px; margin-top: 5px; float: left;
+}
+#mobile3 .wt {
+	width: 140px; margin-top: 5px; float: left;
+}
+#mobile3 .wtpic {
+	width: 50px; height: 50px; line-height: 50px; float: left;
+}
+#mobile3 .wt1 {
+	width: 90px; float: left;
+}
+#mobile3 .wtline {
+	width: 100%; height: 18px; line-height: 18px; float: left;
+}
+#mobile4 {
+	width: auto; height: 60px; overflow: hidden; cursor: pointer;
+}
+#mobile4 a {
+	color: rgb(0, 0, 0);
+}
+#mobile4 .wtleft {
+	width: 75px; float: left;
+}
+#mobile4 .wtname {
+	width: 100%; height: 20px; margin-top: 8px; float: left;
+}
+#mobile4 .wtname a .ico {
+	background: url("../images/edit.png") no-repeat right 4px; width: 15px; height: 15px; display: inline-block;
+}
+#mobile4 .wtname a:hover .ico {
+	background: url("../images/edit.png") no-repeat right -33px;
+}
+#mobile4 .order {
+	width: 100%; height: 20px; margin-top: 3px; float: left;
+}
+#mobile4 .wt {
+	width: 112px; margin-top: 5px; float: left;
+}
+#mobile4 .wtpic {
+	width: 48px; height: 48px; line-height: 48px; float: left;
+}
+#mobile4 .wt1 {
+	width: 64px; float: left;
+}
+#mobile4 .wtline {
+	width: 100%; height: 18px; line-height: 18px; margin-top: 3px; float: left;
+}
+#mobile5 {
+	width: 420px; height: 80px; text-align: center; margin-top: 5px;
+}
+#mobile5 a {
+	color: rgb(0, 0, 0);
+}
+#mobile5 .mobile5_tdw {
+	float: left;
+}
+#mobile5 .wt {
+	margin: 0px auto; float: none;
+}
+#mobile5 .img {
+	margin: 0px auto; float: none;
+}
+#mobile5 .wtmid {
+	width: 120px; height: 22px; padding-top: 2px; margin-top: 2px; margin-bottom: 2px;
+}
+#mobile6 {
+	width: auto; height: 70px; text-align: center; overflow: hidden;
+}
+#mobile6 .mright a {
+	color: rgb(0, 0, 0);
+}
+#mobile6 .mleft {
+	width: 100px; float: left;
+}
+#mobile6 .mright {
+	width: auto; float: left;
+}
+#mobile6 .wtname {
+	width: 100px; margin-top: 15px; float: left;
+}
+#mobile6 .wtname a {
+	font-size: 14px; font-weight: bold;
+}
+#mobile6 .order {
+	width: 100px; height: 20px; margin-top: 10px; float: left;
+}
+#mobile6 .wt {
+	width: 110px; margin-top: 5px; float: left;
+}
+#mobile6 .wtpic {
+	width: 100%; height: 25px; line-height: 25px; float: left;
+}
+#mobile6 .wtpath {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile6 a.wea_more {
+	background: url("../images/wea_arrow.gif") no-repeat 0px 30px; margin: 0px 2px 0px 0px; width: 11px; height: 65px; float: right;
+}
+#mobile6 .img {
+	margin: 0px 5px;
+}
+#mobile7 {
+	width: 100%; text-align: center;
+}
+#mobile7 a {
+	
+}
+#mobile7 .wt {
+	width: 100%; height: 105px;
+}
+#mobile7 .wtwt {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile7 .wtwind {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile7 .wttemp {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile7 .wtname {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile7 .wtbg {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile7 .wtname {
+	height: 20px; color: rgb(0, 170, 0); line-height: 20px; font-size: 14px; font-weight: bold;
+}
+#mobile7 .wtwt {
+	height: 20px; line-height: 20px; font-weight: bold;
+}
+#mobile7 .wtpic {
+	width: 100%; height: 25px; line-height: 25px;
+}
+#mobile7 .wtwind {
+	height: 15px; line-height: 15px;
+}
+#mobile7 .wttemp {
+	height: 20px; color: rgb(116, 153, 0); line-height: 20px; font-size: 14px; font-weight: bold;
+}
+#mobile7 .wtwt {
+	font-weight: bold;
+}
+#mobile7 .wtbg {
+	background-color: rgb(228, 240, 248);
+}
+#mobile8 {
+	width: 232px; height: 80px;
+}
+#mobile8 .wtleft {
+	width: 181px; text-indent: 1em; float: left;
+}
+#mobile8 .wtname {
+	width: 100%; height: 20px; line-height: 20px; overflow: hidden; margin-top: 10px; float: left;
+}
+#mobile8 .wtline {
+	width: 100%; height: 20px; line-height: 20px; overflow: hidden; float: left;
+}
+#mobile8 .wtpic {
+	width: 50px; height: 50px; line-height: 50px; margin-top: 15px; float: left;
+}
+.mobile9 {
+	width: 100%; height: 24px; overflow: hidden; font-size: 12px;
+}
+.mobile9 ul {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+.mobile9 ul li {
+	width: 100%; height: 25px; line-height: 25px; overflow: hidden; float: left; display: inline;
+}
+.mobile9 .wtdate {
+	width: auto; height: 25px; line-height: 25px; float: left;
+}
+.mobile9 .wtname {
+	width: auto; height: 25px; line-height: 25px; float: left;
+}
+.mobile9 .wtwt {
+	width: auto; height: 25px; line-height: 25px; float: left;
+}
+.mobile9 .wttemp {
+	width: auto; height: 25px; line-height: 25px; float: left;
+}
+.mobile9 .wtname {
+	margin-right: 5px;
+}
+.mobile9 .wtwt {
+	margin-left: 5px;
+}
+.mobile9 .wttemp {
+	margin-left: 5px;
+}
+.mobile10 {
+	width: 100%; height: 25px; text-align: center; line-height: 25px; vertical-align: middle;
+}
+.mobile10 a {
+	padding: 0px 5px 0px 0px; color: rgb(51, 51, 51); display: inline-block;
+}
+.mobile10 a img {
+	border: currentColor; border-image: none;
+}
+#mobile11 {
+	width: auto; height: 100px; text-align: center; overflow: hidden;
+}
+#mobile11 .mright a {
+	color: rgb(0, 0, 0);
+}
+#mobile11 .mright {
+	width: auto; float: left;
+}
+#mobile11 .wtname {
+	width: 100px; margin-top: 15px; float: left;
+}
+#mobile11 .wtname a {
+	font-size: 14px; font-weight: bold;
+}
+#mobile11 .order {
+	width: 100px; height: 20px; margin-top: 10px; float: left;
+}
+#mobile11 .wt {
+	width: 155px; margin-top: 5px; float: left;
+}
+#mobile11 .wtpic {
+	width: 100%; height: 25px; color: rgb(0, 102, 204); line-height: 25px; font-size: 24px; font-weight: bold; vertical-align: middle; float: left;
+}
+#mobile11 .wtpath {
+	width: 100%; height: 20px; line-height: 20px; float: left;
+}
+#mobile11 a.wea_more {
+	background: url("../images/wea_arrow.gif") no-repeat 0px 30px; margin: 0px 2px 0px 0px; width: 11px; height: 65px; float: right;
+}
+#mobile11 .img {
+	margin: 0px 5px;
+}
+#mobile01 {
+	width: auto; height: 60px; text-align: center; overflow: hidden;
+}
+#mobile01 .mright a {
+	color: rgb(0, 0, 0);
+}
+#mobile01 .mleft_01 {
+	width: 90px; height: 60px; line-height: 24px; float: left;
+}
+#mobile01 .mleft_01 a.rl {
+	padding: 1px; width: 88px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mleft_01 a.rl:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; width: 88px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mleft_01 .rl span {
+	padding: 4px 0px 0px; width: 88px; text-align: center; float: left;
+}
+#mobile01 .mright {
+	width: auto; float: left;
+}
+#mobile01 a.box_a {
+	padding: 1px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile01 a.box_a:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mleft {
+	width: 90px; line-height: 20px; float: left;
+}
+#mobile01 .wtname {
+	width: 90px; height: 20px; overflow: hidden; padding-top: 8px; float: left;
+}
+#mobile01 .wtname a {
+	font-size: 14px;
+}
+#mobile01 .order {
+	width: 90px; height: 20px; padding-top: 4px; float: left;
+}
+#mobile01 .wt {
+	float: left;
+}
+#mobile01 .wt .img {
+	padding: 5px 5px 0px; float: left;
+}
+#mobile01 .taday01 {
+	padding: 2px 0px 0px; width: 92px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile01 .taday01 li {
+	padding: 2px 0px 0px; width: 94px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile01 .taday01 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile01 .taday01 .wtpath {
+	width: 60px; height: 20px; overflow: hidden; float: left;
+}
+#mobile01 .mright_01 {
+	height: 60px; line-height: 24px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mright_01 a.more {
+	padding: 5px 1px 1px; width: 38px; height: 53px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mright_01 a.more:hover {
+	padding: 4px 0px 0px; border: 1px solid rgb(235, 235, 235); border-image: none; width: 38px; height: 54px; overflow: hidden; float: left; display: block;
+}
+#mobile01 .mright {
+	width: auto; float: left; position: relative;
+}
+#mobile01 .taday02 {
+	padding: 2px 0px 0px; width: 116px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile01 .taday02 li {
+	padding: 2px 0px 0px; width: 100px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile01 .taday02 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile01 .taday02 .wtpath {
+	width: 60px; height: 20px; text-align: center; overflow: hidden; float: left;
+}
+#mobile03 .taday02 .wtwt {
+	width: 70px; height: 20px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile01 .zl {
+	left: 58px; top: 30px; line-height: 20px; float: left; position: absolute;
+}
+#mobile01 .zl .f1 {
+	background: rgb(84, 169, 50); padding: 1px 2px 2px; color: rgb(255, 255, 255); line-height: 12px;
+}
+#mobile01 .zl a:hover {
+	color: rgb(255, 0, 0);
+}
+.welcombar {
+	left: 10px; top: -10px; width: 220px; line-height: 20px; float: left; position: absolute;
+}
+.welcombar p {
+	background: rgb(220, 245, 161); margin: 0px; padding: 0px; height: 20px; float: left;
+}
+.welcombar .txt {
+	padding: 0px 4px 0px 10px; color: rgb(74, 136, 71); float: left;
+}
+.welcombar span {
+	float: left;
+}
+.welcombar i {
+	background: url("http://www.tianqi.com/static/images/close_b.gif") no-repeat 0px 0px; width: 24px; height: 5px; overflow: hidden; clear: both; float: left; display: block;
+}
+.welcombar .close {
+	width: 20px; height: 20px; text-align: center; color: rgb(214, 87, 80); font-family: "宋体"; font-size: 12px; font-weight: bold; float: right; cursor: pointer;
+}
+#mobile03 {
+	width: auto; height: 60px; overflow: hidden; cursor: pointer;
+}
+#mobile03 a {
+	color: rgb(0, 0, 0);
+}
+#mobile03 .wtleft {
+	width: 75px; float: left;
+}
+#mobile03 .wtname {
+	width: 100%; height: 25px; margin-top: 8px; float: left;
+}
+#mobile03 .wtname a .ico {
+	background: url("http://www.tianqi.com/static/images/edit.png") no-repeat right 4px; width: 15px; height: 15px; display: inline-block;
+}
+#mobile03 .wtname a:hover .ico {
+	background: url("http://www.tianqi.com/static/images/edit.png") no-repeat right -33px;
+}
+#mobile03 .mright {
+	width: auto; float: left; position: relative;
+}
+#mobile03 a.box_a {
+	padding: 1px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile03 a.box_a:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile03 .wt {
+	float: left;
+}
+#mobile03 .wt .img {
+	padding: 5px 5px 0px; float: left;
+}
+#mobile03 a.box_a {
+	padding: 1px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile03 a.box_a:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile03 .taday02 {
+	padding: 2px 0px 0px; width: 102px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile03 .taday02 li {
+	padding: 2px 0px 0px; width: 100px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile03 .taday02 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile03 .taday02 .wtpath {
+	width: 60px; height: 20px; text-align: center; overflow: hidden; float: left;
+}
+#mobile03 .taday02 .wtwt {
+	width: 70px; height: 20px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile03 .zl {
+	left: 58px; top: 30px; line-height: 20px; float: left; position: absolute;
+}
+#mobile03 .zl .f1 {
+	background: rgb(84, 169, 50); padding: 1px 2px 2px; color: rgb(255, 255, 255); line-height: 12px;
+}
+#mobile03 .zl a:hover {
+	color: rgb(255, 0, 0);
+}
+#mobile03 .taday01 {
+	padding: 2px 0px 0px; width: 94px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile03 .taday01 li {
+	padding: 2px 0px 0px; width: 98px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile03 .taday01 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile03 .taday01 .wtpath {
+	width: 60px; height: 20px; overflow: hidden; float: left;
+}
+.mobile04 {
+	width: 100%; height: 24px; overflow: hidden; font-size: 12px;
+}
+.mobile04 ul {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+.mobile04 ul li {
+	width: 100%; height: 25px; line-height: 25px; overflow: hidden; float: left; display: inline;
+}
+.mobile04 .f1 {
+	background: rgb(84, 169, 50); padding: 1px 2px 2px; color: rgb(255, 255, 255); line-height: 12px;
+}
+#mobile360 {
+	width: auto; height: 60px; text-align: center; overflow: hidden;
+}
+#mobile360 .mright a {
+	color: rgb(0, 0, 0);
+}
+#mobile360 .mleft_01 {
+	width: 110px; height: 60px; line-height: 24px; float: left;
+}
+#mobile360 .mleft_01 a.rl {
+	padding: 1px 0px; width: 108px; height: 58px; overflow: hidden; border-right-color: rgb(235, 235, 235); border-left-color: rgb(235, 235, 235); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; float: left; display: block;
+}
+#mobile360 .mleft_01 a.rl:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; width: 108px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile360 .mleft_01 .rl span {
+	padding: 4px 0px 0px; width: 108px; text-align: center; float: left;
+}
+#mobile360 .mright {
+	width: auto; float: left; position: relative;
+}
+#mobile360 a.box_a {
+	padding: 1px; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile360 a.box_a:hover {
+	padding: 0px; border: 1px solid rgb(235, 235, 235); border-image: none; height: 58px; overflow: hidden; float: left; display: block;
+}
+#mobile360 .mleft {
+	width: 90px; line-height: 20px; float: left;
+}
+#mobile360 .wtname {
+	width: 90px; height: 20px; overflow: hidden; padding-top: 8px; float: left;
+}
+#mobile360 .wtname a {
+	font-size: 14px;
+}
+#mobile360 .order {
+	width: 90px; height: 20px; padding-top: 4px; float: left;
+}
+#mobile360 .wt {
+	float: left;
+}
+#mobile360 .wt .img {
+	padding: 5px 5px 0px; float: left;
+}
+#mobile360 .taday01 {
+	padding: 2px 0px 0px; width: 82px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile360 .taday01 li {
+	padding: 2px 0px 0px; width: 82px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile360 .taday01 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile360 .taday01 .wtpath {
+	width: 60px; height: 20px; overflow: hidden; float: left;
+}
+#mobile360 .taday02 {
+	padding: 2px 0px 0px; width: 154px; height: 58px; text-align: left; overflow: hidden; float: left; display: block;
+}
+#mobile360 .taday02 li {
+	padding: 2px 0px 0px; width: 150px; height: 24px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile360 .taday02 .day {
+	padding: 0px 6px 0px 0px; height: 20px; float: left;
+}
+#mobile360 .taday02 .wtpath {
+	width: 60px; height: 20px; text-align: center; overflow: hidden; float: left;
+}
+#mobile360 .taday02 .wtwt {
+	width: 70px; height: 20px; line-height: 24px; overflow: hidden; float: left;
+}
+#mobile360 .zl {
+	left: 58px; top: 30px; line-height: 20px; float: left; position: absolute;
+}
+#mobile360 .zl .f1 {
+	background: rgb(84, 169, 50); padding: 1px 2px 2px; color: rgb(255, 255, 255); line-height: 12px;
+}
+#mobile360 .zl a:hover {
+	color: rgb(255, 0, 0);
+}
+#mobile360 .mright_01 {
+	height: 60px; line-height: 24px; overflow: hidden; float: left; display: block;
+}
+#mobile360 .mright_01 a.more {
+	padding: 5px 1px 1px; width: 38px; height: 53px; overflow: hidden; float: left; display: block;
+}
+#mobile360 .mright_01 a.more:hover {
+	padding: 4px 0px 0px; border: 1px solid rgb(235, 235, 235); border-image: none; width: 38px; height: 54px; overflow: hidden; float: left; display: block;
+}
+#mobile360 .mright_02 {
+	padding: 0px 5px 0px 0px; width: 30px; height: 60px; line-height: 60px; overflow: hidden; font-family: "宋体"; font-size: 12px; font-weight: normal; float: left; display: block;
+}
+#mobile360 .mright_02 a:hover {
+	color: rgb(255, 0, 0);
+}
+#mobile05 {
+	width: auto; height: 45px; text-align: center; overflow: hidden;
+}
+#mobile05 .mleft {
+	width: 80px; line-height: 20px; border-right-color: rgb(235, 235, 235); border-right-width: 1px; border-right-style: dotted; float: left;
+}
+#mobile05 .wtname {
+	width: 80px; height: 20px; overflow: hidden; padding-top: 3px; float: left;
+}
+#mobile05 .wtname a {
+	font-size: 14px; font-weight: bold;
+}
+#mobile05 .order {
+	width: 80px; height: 20px; padding-top: 0px; float: left;
+}
+#mobile05 .wt {
+	float: left;
+}
+#mobile05 .wt .img {
+	padding: 0px 4px 0px 5px; float: left;
+}
+#mobile05 .mright {
+	padding: 0px 5px; width: 182px; float: left; position: relative;
+}
+#mobile05 .mright .more_dm {
+	background: url("http://www.tianqi.com/static/img/more_dm.gif") no-repeat 5px 15px; width: 15px; height: 40px; float: left; display: block;
+}
+#mobile05 .taday02 {
+	padding: 0px; height: 45px; text-align: left; overflow: hidden; float: left; display: block; _width: 140px;
+}
+#mobile05 .taday02 li {
+	padding: 2px 0px 0px; height: 20px; line-height: 20px; overflow: hidden;
+}
+#mobile05 .taday02 .day {
+	padding: 0px 3px 0px 0px; height: 20px; float: left;
+}
+#mobile05 .taday02 .bt {
+	padding: 0px 3px 0px 0px; width: 36px; height: 20px; overflow: hidden; float: left;
+}
+#mobile05 .taday02 .wtpath {
+	height: 20px; overflow: hidden; float: left;
+}
+#mobile05 .zl {
+	left: 60px; top: 22px; line-height: 20px; float: left; position: absolute;
+}
+#mobile05 .zl .f1 {
+	background: rgb(84, 169, 50); padding: 1px 2px 2px; color: rgb(255, 255, 255); line-height: 12px;
+}
+#mobile05 .zl a:hover {
+	color: rgb(255, 0, 0);
+}
+#codebox {
+	background: rgb(254, 153, 0); height: 68px; float: left;
+}
+#codebox .img {
+	padding: 11px 4px; float: left;
+}
+#codebox ul {
+	padding: 7px 1px 0px 0px; width: 80px; float: left;
+}
+#codebox ul li {
+	width: 80px; height: 18px; text-align: center; color: rgb(255, 255, 255); line-height: 18px; overflow: hidden; font-family: "宋体"; float: left;
+}
+a#codebox {
+	color: rgb(255, 255, 255);
+}
+#codebox1 {
+	height: 26px; float: left;
+}
+#codebox1 .img {
+	padding: 0px 4px; float: left;
+}
+#codebox1 ul {
+	padding: 0px; line-height: 26px; float: left;
+}
+#codebox1 ul li {
+	padding: 0px 4px; height: 26px; color: rgb(255, 255, 255); line-height: 26px; overflow: hidden; font-family: "宋体"; float: left;
+}
+a#codebox1 {
+	color: rgb(255, 255, 255);
+}

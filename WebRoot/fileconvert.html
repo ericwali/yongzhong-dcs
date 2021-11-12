@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href="../img/favicon.ico" rel="shortcut icon" />
+<meta charset="utf-8">
+<meta name="keywords" content="文档预览、文档转换、高清文档转换、在线预览、在线阅读、永中DCS、Office文档转换、Office文档查看、Word转PDF、PDF转换" /> 
+<meta name="description"  content="永中文档在线预览软件（Document Conversion Service，简称DCS）是通过解析常用办公文档的格式，提供不同文档格式间的相互转换，实现常用格式文档的阅读等服务。" /> 
+<title>永中文档在线预览DCS</title>
+<link rel="stylesheet" href="../js/jquery-isloading/css/style.css" />
+<link rel="stylesheet" href="../css/index.css" />
+<style type="text/css">
+input[type="text"] {
+	float: left;
+}
+
+input[type="text"] ~input[type="button"] {
+	float: left;
+}
+
+.btn {
+	display: inline-block;
+	padding: 7px 12px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	-moz-user-select: none;
+}
+
+.btn-primary {
+	background-color: #7623F1;
+	color: #FFF;
+	border: 1px solid transparent;
+	font-size: 0.9em;
+	height: 2.8em;
+	width: 8em;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out 0s;
+}
+
+.title_span {
+	font-weight: bold;
+}
+p{
+	text-indent:2em
+}
+</style>
+
+<script src="../js/respond.js"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ff9a2f61c9f9d78ca09c55759f771a4e";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!–[if lt IE9]>
+<style type="text/css">
+article, aside, dialog, footer, header, section, footer, nav, figure,
+	menu {
+	display: block;
+}
+</style>
+<script>
+	(function() {
+		if (!
+		/*@cc_on!@*/
+		0)
+			return;
+		var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video"
+				.split(', ');
+		var i = e.length;
+		while (i--) {
+			document.createElement(e[i]);
+		}
+	})()
+</script>
+<![endif]–>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<nav class="header-menu-nav">
+				<div class="logo">
+					<a href="/"><img src="../img/ow.jpg" style="border: none;" /></a>
+				</div>
+				<div class="quick-menu">
+                	<a href="http://www.yozodcs.com" target="_blank">新版</a>
+					<ul>
+						<li><a href="index.html">概览</a></li>
+						<li class="nav-current"><a href="fileconvert.html">介绍</a></li>
+						<li><a href="examples.html">示例</a></li>
+						<li><a href="help.html">文档</a></li>
+						<li><a href="http://qa.yozosoft.com" target="_blank">问答</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="body_content">
+		<div class="container"
+			style="min-height: 770px; padding: 15px 30px; align-content: center; box-shadow: 0 0 10px 5px #888;">
+			<h1 align="center" style="font-family: '微软雅黑';">永中文档在线预览软件介绍</h1>
+			<div style="width: 500px; height: 375px; padding-top: 8px;">
+				<div style="text-align: left; height: 220px;">
+					<span class="title_span">产品简介</span><img
+						style="padding-left: 30px;" src="../img/2014_4_24_01.png" />
+				</div>
+				<div style="margin-top: -180px;">
+					<p style="text-indent: 2em;margin-bottom:0px;margin-top:0px">
+						永中文档在线预览软件（Document Conversion Service，简称DCS）是通过解析常用办公文档的格式，提供不同文档格式间的相互转换，实现常用格式文档的阅读等服务。<br />
+						DCS能直接部署在Windows或Linux网络操作系统上，与Web 服务器、邮件服务器等配合，提供Office文档阅读及批量转换功能。<br />
+						永中DCS支持阅读和转换的文档格式非常丰富，涵盖微软Office 97~2013、PDF、UOF和OFD等常用文档格式，同时可根据用户需求进行特定格式的合作。<br /></p>
+						<p style="margin-top:0px">在使用方式方面，支持永中文档转换组件（Document Conversion Component，简称DCC）和DCS服务器（DCS Server）两种使用方式：前者是jar包调用（DCC），主要适合java语言调用；后者为http请求方式调用，支持各种开发语言以标准Web服务方式提供调用，如搭配负载均衡服务器，可部署到多台服务器上并发使用，实现集群部署。<br/>
+						在输出网页效果方面，新增高清版网页效果支持。可在网页中展示与Office中显示一致的原版式、支持无极缩放和复制文本内容的高清版面效果。<br/>
+					</p>
+				</div>
+				<div
+					style="margin-top:  -230px; width: 456px; height: 255px; margin-left: 550px;">
+					<img style="height: 300px" src="../img/dcs_1.jpg" />
+				</div>
+			</div>
+			<br />
+			
+
+			<div style="width: 500px; height: 220px; margin-top: 20px;">
+				<div style="text-align: left">
+					<span class="title_span">产品特点</span><img
+						style="padding-left: 30px;" src="../img/2014_4_24_01.png" />
+				</div>
+				<p style="text-indent:0em">
+					1、支持doc/docx、xls/xlsx、ppt/pptx和pdf等20多种常用Office文档转换为高度兼容的高质量网页文档，实现直观阅读，提高工作效率。<br/>
+					2、支持移动阅读，针对移动设备特别优化，支持内容自适应屏幕大小和方向；支持文档缩略图功能，可将文档首页内容直观呈现为图片。<br/>
+					3、转换效率高，可同时支持多个文档同时转换（需服务器和网络环境支持）。<br/>
+					4、开发部署简单高效，只需要传入待转换的文档和相关参数，系统自动返回转换后文件URL。<br/>
+					5、支持本地化部署，支持Linux和Windows等多种操作系统。<br/>
+					6、基于自主可控技术，支持特定需求的定制开发。
+				</p>
+			</div>
+			<br />
+			<div style=" margin-top: 20px;">
+				<div style="text-align: left">
+					<span class="title_span">典型案例</span><img
+						style="padding-left: 30px;" src="../img/2014_4_24_01.png" />
+				</div>
+				<p style="margin-bottom:0px">
+					QQ邮箱、网易126/163邮箱、移动139邮箱、189邮箱等均采用永中DCS实现邮件附件在线阅读功能，不用为下载附件而烦恼等待,也不必担心没有合适的阅读器。</p>
+					<p style="margin-top:0px">移动设备上邮件附件中的Office文档，手机无法查看？有了永中DCS，无需安装阅读软件，照样预览附件文档，比阅读软件更方便；只需轻轻一点，附件轻松浏览，即省空间，又省流量。
+				</p>
+			</div>
+		</div>
+	</section>
+		<!--页脚-->
+	<footer class="foot">
+		<div style="padding-top: 10px;">联系电话：13485056205（倪先生）</div>
+		<div style="padding-top: 10px; text-align: center">
+			<a href="mailto:nzq@yozosoft.com" ><span>邮 箱：
+					nzq@yozosoft.com</span> </a>
+		</div>
+		<div style="padding-top: 10px; text-align: center">
+			<a href="termsofuse.html" target="_blank"><span>使用条款</span> </a>
+		</div>
+		<div style="padding-top: 10px; text-align: center">无锡永中软件有限公司
+			苏ICP备10095690号-5</div>
+	</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"187.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script src="../js/qqjs.js"></script>
+
+
+</body>
+
+</html>

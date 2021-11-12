@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zip Viewer</title>
+    <link href="../js/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../js/jquery-isloading/css/style.css" />
+    <link rel="stylesheet"	href="../js/jquery-toastmessage/css/jquery.toastmessage.css" />
+    <style>
+    body {
+        font-family: "Helvetica Neue", "lucida Grande", "Verdana";
+        font-size: 12px;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #headbar {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 60px;
+        right: 0;
+        _width: 100%;
+        border-bottom: solid 1px #eee;
+    }
+    
+    .unselect {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: -moz-none;
+        -o-user-select: none;
+        user-select: none;
+    }
+    
+    #headbar h3 {
+        line-height: 60px;
+        margin: 0;
+        font-size: 30px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #000;
+        overflow: hidden;
+        position: absolute;
+        left: 15px;
+        right: 24px;
+    }
+    
+    #container {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        _width: 100%;
+        overflow: auto;
+    }
+    
+    #stack {
+        padding: 10px;
+        border-bottom: solid 1px #eee;
+    }
+    
+    #stack button {
+        padding: 3px 5px;
+        line-height: 20px;
+    }
+    
+    #files {
+        padding: 10px 20px 70px;
+    }
+    
+    .file {
+        float: left;
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        padding: 15px 20px;
+        border: 3px solid #fff;
+        list-style: none;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    .file td {
+        width: 114px;
+        height: 102px;
+    }
+    
+    .file:hover {
+        border: 3px solid #ececec;
+        border-radius: 5px;
+    }
+    
+    .fname,
+    .fsize {
+        white-space: nowrap;
+        line-height: 14px;
+        height: 14px;
+        display: block;
+        overflow: hidden;
+        color: #333;
+    }
+    
+    .fsize {
+        color: #808080;
+    }
+    /* icons */
+    
+    .fcon {
+        width: 114px;
+        height: 102px;
+        display: block;
+        margin: 0 auto;
+        background: url(../img/ico_file.jpg) no-repeat;
+    }
+    
+    .ico_file_doc {
+        background-position: 0px 0px;
+    }
+    
+    .ico_file_xls {
+        background-position: -114px 0px;
+    }
+    
+    .ico_file_ppt {
+        background-position: -228px 0px;
+    }
+    
+    .ico_file_eml {
+        background-position: 0px -102px;
+    }
+    
+    .ico_file_compress {
+        background-position: -114px -102px;
+    }
+    
+    .ico_file_dir {
+        background-position: -228px -102px;
+    }
+    
+    .ico_file_psd {
+        background-position: 0px -204px;
+    }
+    
+    .ico_file_fla {
+        background-position: -114px -204px;
+    }
+    
+    .ico_file_pdf {
+        background-position: -228px -204px;
+    }
+    
+    .ico_file_html {
+        background-position: 0px -306px;
+    }
+    
+    .ico_file_audio {
+        background-position: -114px -306px;
+    }
+    
+    .ico_file_video {
+        background-position: -228px -306px;
+    }
+    
+    .ico_file_txt {
+        background-position: 0px -408px;
+    }
+    .ico_file_ofd{
+        background-position: 0px -408px;
+    }
+    .ico_file_other {
+        background-position: -114px -408px;
+    }
+    
+    .ico_file_img {
+        background-position: -228px -408px;
+    }
+    
+    
+    .actionBar {
+        float: right;
+        margin: 0 10px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .actionBar select {
+        opacity: .8;
+        height: 60px;
+        text-align: center;
+        width: 170px;
+        font-size: 28px;
+    }
+    
+    .actionBar a {
+        float: right;
+        opacity: .8;
+        width: 40px;
+        height: 60px;
+        text-align: center;
+    }
+    
+    .actionBar a:hover {
+        opacity: 1;
+    }
+    
+    .am-fadeinright {
+        -webkit-animation: fadeinright .3s ease;
+        -moz-animation: fadeinright .3s ease;
+        -ms-animation: fadeinright .3s ease;
+        animation: fadeinright .3s ease;
+    }
+    
+    @-webkit-keyframes fadeinright {
+        from {
+            -webkit-transform: translateX(20px);
+            opacity: 0;
+        }
+        to {
+            -webkit-transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @-ms-keyframes fadeinright {
+        from {
+            -ms-transform: translateX(20px);
+            opacity: 0;
+        }
+        to {
+            -ms-transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadeinright {
+        from {
+            transform: translateX(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="../css/picasa.css">
+</head>
+
+<body class="unselect">
+    <div id="headbar" class="unselect">
+        <div class="actionBar">
+            <select id="convertType" class="convertType">
+            <option value ="1">标准预览</option>
+            <option value ="0">高清预览</option>
+            </select>
+            <a id="downloadzip" href="#"><i class="pcon pcon-down" style="margin-top:19px;"></i></a>
+        </div>
+        <h3 id="zipName">测试压缩包.zip</h3>
+    </div>
+    <div id="container">
+        <div id="stack"></div>
+        <div id="files" class="am-fadeinright"></div>
+    </div>
+</body>
+    <script type="text/javascript"	src="../js/jquery-1.11.0.js"></script>
+  <script src="../js/zip.js"></script>
+    <script type="text/javascript"	src="../js/jquery-toastmessage/jquery.toastmessage.js"></script>
+  <script type="text/javascript"
+		src="../js/jquery-isloading/js/jquery.isloading.js"></script>
+    <script>
+    //为true时不做转换，为false时清空data.url做转换
+    var flag = true;  
+	var configJSON ={"name":"zipFold","position":"zipFold","size":"4kb","children":[{"name":"1.jpg","position":"zipFold","size":"557kb"},{"name":"doctest.docx","position":"zipFold","size":"25kb"},{"name":"fold1","position":"zipFold\\fold1","size":"4kb","children":[{"name":"1.jpg","position":"zipFold\\fold1","size":"557kb"},{"name":"doctest.docx","position":"zipFold\\fold1","size":"25kb"},{"name":"fold1A","position":"zipFold\\fold1\\fold1A","size":"4kb","children":[{"name":"1.jpg","position":"zipFold\\fold1\\fold1A","size":"557kb"},{"name":"doctest.docx","position":"zipFold\\fold1\\fold1A","size":"25kb"},{"name":"pdftest.pdf","position":"zipFold\\fold1\\fold1A","size":"368kb"},{"name":"ppttest.pptx","position":"zipFold\\fold1\\fold1A","size":"5891kb"},{"name":"xlstest.xls","position":"zipFold\\fold1\\fold1A","size":"51kb"},{"name":"示例文档.rar","position":"zipFold\\fold1\\fold1A","size":"5213kb"}]},{"name":"pdftest.pdf","position":"zipFold\\fold1","size":"368kb"},{"name":"ppttest.pptx","position":"zipFold\\fold1","size":"5891kb"},{"name":"xlstest.xls","position":"zipFold\\fold1","size":"51kb"},{"name":"示例文档.rar","position":"zipFold\\fold1","size":"5213kb"}]},{"name":"fold2","position":"zipFold\\fold2","size":"0kb","children":[{"name":"fold2A","position":"zipFold\\fold2\\fold2A","size":"0kb","children":[{"name":"fold2AA","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"4kb","children":[{"name":"1.jpg","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"557kb"},{"name":"doctest.docx","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"25kb"},{"name":"pdftest.pdf","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"368kb"},{"name":"ppttest.pptx","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"5891kb"},{"name":"xlstest.xls","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"51kb"},{"name":"示例文档.rar","position":"zipFold\\fold2\\fold2A\\fold2AA","size":"5213kb"}]}]},{"name":"fold2B","position":"zipFold\\fold2\\fold2B","size":"0kb","children":[]}]},{"name":"pdftest.pdf","position":"zipFold","size":"368kb"},{"name":"ppttest.pptx","position":"zipFold","size":"5891kb"},{"name":"xlstest.xls","position":"zipFold","size":"51kb"},{"name":"示例文档.rar","position":"zipFold","size":"5213kb"}]};
+	$(function() {
+         ZIP = {
+        	//root:'zips/',
+			root:'',
+            el: $("#container"),
+            stack: $("#stack"),
+            files: $("#files"),
+            data: configJSON,
+            //当前路径
+            dir: configJSON,
+            //后缀名映射
+            extMap: {
+            	ofd:"ofd",
+                doc: "doc,docx",
+                xls: "xls,xlsx",
+                ppt: "ppt,pptx",
+                eml: "eml",
+                compress: "zip,rar,7z,tar",
+                // dir :"",
+                psd: "psd",
+                fla: "fla",
+                pdf: "pdf",
+                html: "html",
+                audio: "mp3",
+                video: "mp4",
+                txt: "txt",
+                other: "",
+                img: "jpg,gif,bmp,png"
+            },
+            //处理程序
+            actionMap: {
+            	ofd:null,
+                doc: null,
+                xls: null,
+                ppt: null,
+                eml: null,
+                compress: null,
+                dir: null,
+                psd: null,
+                fla: null,
+                pdf: null,
+                html: null,
+                audio: null,
+                video: null,
+                txt: null,
+                other: null,
+                img: null
+            },
+            action: function(n) {
+                var data = this.dir.children[n];
+                if (this.actionMap[data.action]) {
+                    this.actionMap[data.action].call(this, data, n);
+                } else {
+                    this.actionMap["other"].call(this, data, n);
+                }
+
+            },
+            getAction: function(data) {
+                if (data.children) return "dir";
+
+                var name = data.name.toLowerCase(),
+                    dot = name.lastIndexOf('.');
+                if (dot <= 0) {
+                    dot = "";
+                } else {
+                    dot = name.slice(dot + 1);
+                };
+                return this.extMap[dot] || "other";
+            },
+            //刷新当前路径界面
+            render: function() {
+                var self = this,
+                    data = this.dir;
+                if (data.dir) {
+                    this.stack.html('<button class="ac-back">返回</button> &nbsp; ' + data.dir.path+data.name).show();
+                } else {
+                	//this.stack.html(data.dir.path+data.name).show();
+                    this.stack.hide().empty();
+                }
+                //文件列表
+                var s = "";
+                $.each(data.children, function(i, o) {
+                    if (o.action == "img") {
+                        s += '<a class="file" href="#' + i + '"><table><tr><td><img style="width:80px;height:54px" src="' + ZIP.root+data.path + o.name + '"></td></tr></table><span class="fname">' + o.name + '</span><span class="fsize">' + (o.size || "") + '</span></a>';
+                    } else {
+                        s += '<a class="file" href="#' + i + '"><span class="fcon ico_file_' + o.action + '"></span><span class="fname">' + o.name + '</span><span class="fsize">' + (o.size || "") + '</span></a>';
+                    }
+                });
+                this.files.hide().html(s).show();
+            }
+        };
+        
+        //============================预处理============================
+        //生成扩展地图
+        var extmap = {};
+        $.each(ZIP.extMap, function(k, v) {
+            $.each(v.split(','), function(i, o) {
+                extmap[o] = k;
+            });
+        });
+
+        ZIP.extMap = extmap;
+        //深度遍历json,补充辅助属性 dir,action
+          check = function(dir, path) {
+            dir.path = path + dir.name + '/';
+            $.each(dir.children, function(i, o) {
+                o.dir = dir;
+                o.action = ZIP.getAction(o);
+                if (o.children) {
+                    check(o, dir.path);
+                }
+            });
+        }
+        // check(ZIP.data, '');  
+
+        //IE6
+        if (window.ActiveXObject && !window.XMLHttpRequest) {
+            $(window).resize(function() {
+                ZIP.el.height($(this).height() - 43);
+            });
+        }
+        //============================绑定点击============================
+        ZIP.el.on('click', '.file', function(e) {
+            var index = this.hash.slice(1);
+            ZIP.action(index);
+            e.preventDefault();
+        });
+        ZIP.el.on('click', '.ac-back', function(e) {
+            ZIP.dir = ZIP.dir.dir;
+            ZIP.render();
+        });
+        //============================注册处理事件============================
+        //文件夹
+        ZIP.actionMap['dir'] = function(data, index) {
+            this.dir = data;
+            this.render();
+        };
+        //other
+        ZIP.actionMap['other'] = function(data, index) {
+            //暂不支持该类型文件的预览
+        	$().toastmessage('showWarningToast', '该文档类型不支持预览');
+        };
+        ZIP.actionMap['compress'] = function(data, index) {
+            //暂不支持该类型文件的预览
+        	$().toastmessage('showWarningToast', '不支持内部压缩文件预览');
+        };
+        //html
+        ZIP.actionMap['html'] = function(data, index) {
+        	$.picasa({
+        		thumb: false,
+        		data: [{
+                    //文档转换地址
+                    iframe: ZIP.root+data.dir.path + data.name,
+                    title: data.name
+                }],
+                download: function(data) {
+                	window.open(data.iframe,"_blank");
+                }
+            });
+        };
+        //图片
+        ZIP.actionMap['img'] = function(data, index) {
+            var datas = [],
+                dir = data.dir;
+				active = 0;
+            $.each(dir.children, function(i, o) {
+                if (o.action == "img") {
+					if(i==index){
+						active = datas.length;
+					}
+                    datas.push({
+                        src: ZIP.root+dir.path +  o.name,
+                        thumb: ZIP.root+dir.path + o.name,
+                        title: o.name
+                    });
+                }
+            });
+            $.picasa({
+                data: datas,
+				active: active,
+                download: function(data) {
+                	window.open(data.src);
+                }
+            });
+        };
+        
+        //doc xls ppt pdf
+        ZIP.actionMap['doc'] = ZIP.actionMap['xls'] = ZIP.actionMap['ppt'] = ZIP.actionMap['txt'] = ZIP.actionMap['pdf']= ZIP.actionMap['ofd'] = function(data, index) {
+        	var dir = data.dir;
+        	var ct = $("#convertType").val();
+        	if(flag == false){
+        		data.url = null;
+        	}
+          if(data.url){
+						 $.picasa({
+				                width: 850, //强制宽度850，不设置则自适应
+				                thumb: false,
+				                padding: [30, 60, 50, 60],
+				                data: [{
+				                    //文档转换地址
+				                    iframe: data.url,
+				                    title: "永中文档转换服务"
+				                }],
+				                setTitle: function(n, itm) {
+				                    return itm.title;
+				                },
+				                download: function() {
+				                	  window.open(ZIP.root+dir.path + data.name,"_blank");
+				                },
+				                create: function() {
+				                    //把title的位置往下移一点
+				                    this.title.css('bottom', 10);
+				                }
+						 });
+          }else{
+        	    if(ct == 1){    	
+        	        ct = /.*pdf$/.test(data.name)?14:1;
+        	        ct = /.*ofd$/.test(data.name)?21:ct;
+        	    }else if(ct == 0){
+        	    	ct = /.*pdf$/.test(data.name)?20:0;
+        	        ct = /.*ofd$/.test(data.name)?21:ct;
+        	    }
+//         	    ct = /.*pdf$/.test(data.name)?14:1;
+//     	        ct = /.*ofd$/.test(data.name)?21:ct;
+/*                 var ct = data.name.endsWith("pdf")?14:1; */
+        	  $.isLoading({
+					text : "请稍后，正在转换"
+				});
+   				$.ajax({
+					url : "convert",
+					data : {
+						"outputDir" : zipFileName+"/"+dir.path+ data.name,
+						"convertType" : ct,
+						"htmlName" : data.name,
+						"isShowAll" : 1
+					},
+					dataType : "json",
+					type : "post",
+					success : function(re) {
+						$.isLoading("hide");
+						flag = true;
+						data.url = re.data,
+						 $.picasa({
+				                width: 850, //强制宽度850，不设置则自适应
+				                thumb: false,
+				                padding: [30, 60, 50, 60],
+				                data: [{
+				                    //文档转换地址
+				                    iframe: re.data,
+				                    title: "永中文档转换服务"
+				                }],
+				                setTitle: function(n, itm) {
+				                    return itm.title;
+				                },
+				                download: function() {
+				                	  window.open(ZIP.root+dir.path + data.name,"_blank");
+				                },
+				                create: function() {
+				                    //把title的位置往下移一点
+				                    this.title.css('bottom', 10);
+				                }
+				            });
+					},
+					error : function(data) {
+						$.isLoading("hide");
+						flag = true;
+						alert("网络异常，请稍后再试");
+					}
+				})
+          }
+         //   window.open(ZIP.root+dir.path + data.name,"_blank");
+         //AJAX请求，转换成功后显示页面；
+       
+        };
+        //============================start============================
+        getQuery();
+       // ZIP.render(); 
+    });
+    function getQuery(){
+    	//http://localhost:8080/dcs.web/view.html?MjAxNS0xMi0xNCAxMDo0ODozMDYy==%E6%9C%B1%E7%8E%AE+J2EE%E5%BC%80%E5%8F%91.doc
+     	 var url =	window.location.href;
+     	  zipFileName = url.substring(url.lastIndexOf(".html?")+6);    	
+     	// pages = new Array();
+     //	 var showName = decodeURI(url.substring(url.indexOf("==")+2));
+     	// $(".container-fluid a").html(showName);
+			$.ajax({
+				url : "zipview",
+				data : {
+					"fileName" : zipFileName
+				},
+				dataType : "json",
+				type : "post",
+				success : function(data) {
+				     if(data.result == 0){
+				    	 var configJSON = data.foldJson;
+				    	 var staticPath =data.staticPath;
+				    	 /* console.info(JSON.stringify(configJSON));
+				    	 console.info(ZIP); */
+				    	 $("#zipName").html(data.foldJson.name);
+				    	 ZIP.data = data.foldJson;
+				    	 ZIP.dir = data.foldJson;
+				    	 ZIP.root = data.staticPath; 
+				    	 $("#downloadzip").attr("href",data.staticPath+data.foldJson.position);
+				    	 check(ZIP.data, '');  
+				    	 ZIP.render(); 
+				     }else{
+				    	 alert(data.message);
+				     }
+				},
+				error : function(data) {
+					alert("网络出错");
+				}
+			});
+    }
+    //检测转换类型选择的变化,在success方法中变为true
+    $("#convertType").change(function(){
+    	flag = false;
+    });
+    </script>
+    
+</html>

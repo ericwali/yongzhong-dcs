@@ -1,0 +1,1029 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="劳动合同生成向导" />
+<meta name="description" content="劳动合同生成向导" />
+<title>劳动合同生成器</title>
+<link href="../img/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../js/jquery-isloading/css/style.css" />
+<link type="text/css" rel="stylesheet" href="Css/main.css">
+<style type="text/css">
+#wizard {border:0px solid #789;font-size:12px;min-height:705px;margin:20px auto;width:1000px;overflow-x:hidden;overflow-y:hidden;position:relative;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#wizard .items{width:20000px; clear:both; position:absolute;}
+#wizard .right{float:center;}
+#wizard #status{height:35px;background:#123;padding-left:25px !important;}
+#status li{float:left;color:#fff;padding:10px 30px; display:inline-block;}
+#status li.active{background-color:#369;font-weight:normal;}
+
+.menu {font-size:16px;height:120px;width:1000px;background:#edf6ff;border-bottom:1px solid #d2d1d1;text-align:center;}
+.submenu {width:145px;display:inline-block;height:35px;margin-top:25px;font-size: 18px;}
+.subactive {background-color:#369;font-weight:normal;}
+.menu4 {width:1000px;height:170px; background:url(Images/ldht_back.png) no-repeat 50% 0%;}
+
+.input240{width:240px; height:18px; margin:10px auto; line-height:20px; border:0; border-bottom:1px solid #d3d3d3; padding:2px;border-bottom:1px solid ;}
+.input100{width:140px; height:18px; margin:10px auto; line-height:20px; border:0; border-bottom:1px solid #d3d3d3; padding:2px;border-bottom:1px solid;}
+.input40{width:80px; height:18px; margin:10px auto; line-height:20px; border:0; border-bottom:1px solid #d3d3d3; padding:2px;border-bottom:1px solid;}
+.page{padding:20px 90px;width:820px;float:left;color:#666;}
+.page h3{height:42px; font-size:16px; border-bottom:1px dotted #ccc; margin-bottom:20px; padding-bottom:5px}
+.page h3 em{font-size:12px; font-weight:500; font-style:normal}
+.page p{line-height:28px;font-weight:bold;}
+.labelB{font-size:16px; display:inline-block;font-weight:bold;}
+.labelB2{font-size:16px; display:inline-block;font-weight:normal;}
+.page p label{font-size:14px; display:block;}
+.err_hint{font-size:14px; color:red;}
+.p_bold {font-weight:bold; line-height: 24px;}
+.btn_nav{height:36px; line-height:36px; margin:20px auto;}
+.tips {
+	padding: 20px 23px 15px 23px;
+	line-height: 24px;
+	font-family: "宋体";
+    background-color:#f6f7f8;
+    color: #8c8c8c;
+    border: 1px solid #c0c7ce;
+    border-radius: 5px;
+    margin-bottom:10px;
+    margin-top:10px;
+    position: relative;
+ }
+.tips i {
+	position: absolute;
+     bottom: -12px;
+     left: 20px;
+     width: 25px;
+     height: 12px;
+     background: url(Images/ldht-jiantoua.png) 0 0 no-repeat;
+}
+</style>
+<script type="text/javascript" src="Scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"
+		src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="Scripts/scrollable.js"></script>
+<script type="text/javascript"
+		src="../js/jquery-isloading/js/jquery.isloading.js"></script>
+</head>
+
+<body>
+
+
+<div id="main">
+	<div style="font-size:34px;margin-top:20px;text-align:center;font-famiy:'微软雅黑';">
+	            劳动合同生成器
+	    <div style="font-size:16px;padding-top:20px;padding-bottom: 5px; text-align:center;line-height: 20px;">使用永中DCS，搞定劳动合同so easy！</div>
+	</div>
+    <div style="font-size:12px; width:1000px; margin-left:16px;margin-top:2px;text-indent:2em;display:none;">
+《劳动合同法》规定了公司必需与聘用的员工签订劳动合同。劳动合同明确了公司聘用员工的期限，岗位，薪酬以及双方解除劳动关系的条件与程序等重大事项。不签订劳动合同不仅是违法的，也会对公司与员工的权益留下重大隐患。《劳动合同法》也对公司与员工的劳动关系的重大方面做出了强制性的规定，劳动合同应符合这些法定要求（与法律强制性要求不符的合同约定是无效的）。
+    </div>
+    <div style="font-size:12px; width:1000px; margin-left:16px;margin-top:2px;text-indent:2em;display:none;">
+    本劳动合同生成器是法斗士网针对广大中小微企业的需求而设计的，帮助企业快速个性化定制专业的劳动合同。在符合法律强制性要求的前提下，既明确双方对重大事项的约定，也保障企业内部管理的灵活性。
+    </div>
+   <form>
+	<div id="wizard">
+		<!--ul id="status">
+			<li class="active"><strong>1.&nbsp; </strong>聘用期限</li>
+			<li><strong>2.&nbsp; </strong>工作内容</li>
+			<li><strong>3.&nbsp; </strong>工资福利</li>
+			<li><strong>4.&nbsp; </strong>辞退事项</li>
+			<li><strong>5.&nbsp; </strong>其他约定</li>
+			<li><strong>6.&nbsp; </strong>双方信息</li>
+		</ul-->
+		<div class="menu">
+            <div style="height:55px;" align="center">
+                <div class="submenu">合同期限</div>
+                <div class="submenu">工作内容</div>
+                <div class="submenu">工资福利</div>
+                <div class="submenu">辞退事项</div>
+                <div class="submenu">其他约定</div>
+                <div class="submenu">双方信息</div>
+                </div>
+                <div class="menu2">
+                    <div id="step" class="menu2_active" style="display:inline-block;"> 
+                    <span class="menu_span">1</span>
+                    <span id="step_line" class="line_in"></span>
+                    </div>
+                    <div id="step" class="menu2_deactive" style="display:inline-block;"> 
+                    <span class="menu_span">2</span>
+                    <span id="step_line" class="line_none"></span>
+                    </div>
+                    <div id="step" class="menu2_deactive" style="display:inline-block;"> 
+                    <span  class="menu_span">3</span>
+                    <span id="step_line" class="line_none"></span>
+                    </div>
+                    <div id="step" class="menu2_deactive" style="display:inline-block;"> 
+                    <span  class="menu_span">4</span>
+                    <span id="step_line" class="line_none"></span>
+                    </div>
+                    <div id="step" class="menu2_deactive" style="display:inline-block;"> 
+                    <span  class="menu_span">5</span>
+                    <span id="step_line" class="line_none"></span>
+                    </div>
+                    <div id="step" class="menu2_deactive" style="width:40px;display:inline-block;"> 
+                    <span class="menu_span">6</span>
+                    </div>
+                </div>
+
+
+		</div>
+
+		<div class="items">
+			<div class="page">
+               <div class="tips">
+               <i></i>
+               1.1 提示：劳动合同应明确合同期限，合同到期时，双方劳动关系终止。本生成器适用于最常见的固定期限劳动合同。但请注意，在公司已与员工连续订立2次固定期限合同或员工已在公司连续工作满10年等情况下，公司有义务与员工签订无固定期限劳动合同。               
+               </div>
+               <p><span class=labelB>1.1 合同期限</span></p>
+               <p><span class="labelB2">•公司拟与员工签订的劳动合同的固定期限是:</span>
+               <div id=htqx_time>
+               <p class=p_bold>从<SELECT id="startYear" name="startYear" >
+									<OPTION  value="2011">2011</OPTION>
+									<OPTION  value="2012">2012</OPTION>
+									<OPTION  value="2013">2013</OPTION>
+									<OPTION selected value="2014">2014</OPTION>
+									<OPTION  value="2015">2015</OPTION>
+									<OPTION  value="2016">2016</OPTION>
+									<OPTION  value="2017">2017</OPTION>
+									<OPTION  value="2018">2018</OPTION>
+									<OPTION  value="2019">2019</OPTION>
+									</SELECT>年
+									<SELECT id="startMonth" name="startMonth" >
+									<OPTION  value="1">1</OPTION>
+									<OPTION  value="2">2</OPTION>
+									<OPTION  value="3">3</OPTION>
+									<OPTION  value="4">4</OPTION>
+									<OPTION  value="5">5</OPTION>
+									<OPTION  value="6">6</OPTION>
+									<OPTION  value="7">7</OPTION>
+									<OPTION  value="8">8</OPTION>
+									<OPTION  value="9" selected>9</OPTION>
+									<OPTION  value="10">10</OPTION>
+									<OPTION  value="11">11</OPTION>
+									<OPTION  value="12">12</OPTION>
+									</SELECT>月
+									<SELECT id="startDay" name="startDay" >
+									<OPTION  value="1">1</OPTION>
+									<OPTION  value="2">2</OPTION>
+									<OPTION  value="3">3</OPTION>
+									<OPTION  value="4">4</OPTION>
+									<OPTION  value="5">5</OPTION>
+									<OPTION  value="6">6</OPTION>
+									<OPTION  value="7">7</OPTION>
+									<OPTION  value="8">8</OPTION>
+									<OPTION  value="9">9</OPTION>
+									<OPTION  value="10">10</OPTION>
+									<OPTION  value="11">11</OPTION>
+									<OPTION  value="12">12</OPTION>
+									<OPTION  value="13">13</OPTION>
+									<OPTION  value="14">14</OPTION>
+									<OPTION  value="15">15</OPTION>
+									<OPTION  value="16">16</OPTION>
+									<OPTION  value="17">17</OPTION>
+									<OPTION  value="18">18</OPTION>
+									<OPTION  value="19">19</OPTION>
+									<OPTION  value="20">20</OPTION>
+									<OPTION  value="21">21</OPTION>
+									<OPTION  value="22">22</OPTION>
+									<OPTION  value="23">23</OPTION>
+									<OPTION  value="24">24</OPTION>
+									<OPTION  value="25">25</OPTION>
+									<OPTION  value="26">26</OPTION>
+									<OPTION  value="27">27</OPTION>
+									<OPTION  value="28">28</OPTION>
+									<OPTION  value="29">29</OPTION>
+									<OPTION  value="30">30</OPTION>
+									<OPTION  value="31">31</OPTION>
+									</SELECT>日起的 <SELECT id="fixedYear" name="fixedYear" onchange="check_trial()">
+                                    <OPTION  value="1">1</OPTION>
+                                    <OPTION  value="2">2</OPTION>
+                                    <OPTION  value="3">3</OPTION>
+                                    <OPTION  value="4">4</OPTION>
+                                    <OPTION  value="5">5</OPTION>
+                                    <OPTION  value="6">6</OPTION>
+                                    <OPTION  value="7">7</OPTION>
+                                    <OPTION  value="8">8</OPTION>
+                                    <OPTION  value="9">9</OPTION>
+                                    <OPTION  value="10">10</OPTION>
+                                    <OPTION  value="11">11</OPTION>
+                                    <OPTION  value="12">12</OPTION>
+                                    </select><SELECT id="yearMonth" name="yearMonth" onchange="check_trial()" >
+                                    <OPTION  value="年">年</OPTION>
+                                    <OPTION  value="月">月</OPTION>
+                                    </select>
+								</p>
+                       <div id ="yearDiv1">
+                    </div>
+             	 </div>
+             	 <p>&nbsp;</p>
+                 <div class=tips>
+                 <i></i>
+                 1.2 提示：公司可以和员工约定一次试用期，在试用期期间双方都可比较快速的解除劳动合同。《劳动合同法》规定合同期限3-12个月的试用期不得超过1个月；1年-3年的，试用期不得超过2个月；3年以上的，试用期不得超过6个月。
+                 </div>
+             	 <p><span class=labelB>1.2 试用期</span></p>
+                 <p><span class="labelB2">•是否有试用期？</span></p>
+                 <p class=p_bold><div style="display:inline-block;font-weight:bold;"><input type="radio" id="hasTrialPeriod" name="hasTrialPeriod" value=1 checked onclick="radio_click_trial(this)"/>是:</div></p>
+                 <div id=trial_time style="display:inline-block;font-weight:bold;">
+                 试用期为： 
+                 <SELECT id="trialMonth" name="trialMonth" style="display:inline;" onchange="check_trial()">
+                 <OPTION  value="1" selected>1</OPTION>
+                 <OPTION  value="2" >2</OPTION>
+                 <OPTION  value="3">3</OPTION>
+                 <OPTION  value="4">4</OPTION>
+                 <OPTION  value="5">5</OPTION>
+                 <OPTION  value="6">6</OPTION>
+                 </select>个月
+                 </div>
+               </p>
+               <p class=p_bold><input type="radio"  id="hasTrialPeriod" name="hasTrialPeriod" value=0 onclick="radio_click_trial(this)"/>否</p>
+                <div id="err_trial" class="err_hint" style="display:none;">
+                    错误提示
+                </div>
+                  <div class="btn_nav">
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+            </div>
+			<div class="page">
+                <div class=tips >
+                <i></i>
+                2.1 提示：劳动合同应明确员工受聘的职位，如有必要可进一步描述员工具体的工作内容。
+                </div>
+               <p><span class=labelB>2.1 员工职位</span></p>
+               <p><span class="labelB2">
+               •员工担任的职位是<input maxlength=40 class="input240" type=text name="job" id="job"  placeholder="请填写员工受聘的职位 - 必填"></input>
+               ，从事<input maxlength=140 class="input240" type=text name="jobDuty" id="jobDuty" placeholder="请填写员工的工作内容 - 选填" ></input>工作 
+               </span></p>	
+               <p>&nbsp;</p>
+               <div class=tips>
+               <i></i>
+               2.2 提示：劳动合同应明确员工主要工作地点所在的城市。
+               </div>
+               <p><span class=labelB>2.2 工作地点</span></p> 
+               <p><span class="labelB2">
+               •员工的工作地点是：<input maxlength=40 class="input240" type=text name="jobLoc" id="jobLoc" placeholder="请填写员工主要工作地点所在的城市"/></span></p>
+               	
+
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+            </div>
+      <div class="page">
+               <div class=tips>
+               <i></i>
+                3.1 提示：劳动合同应明确员工的工资（不得低于当地政府规定的最低工资）。有些公司为了内部管理的目的，将工资拆分为基本工资，岗位工资，津贴，奖金，业绩提成等类目，但请注意根据相关法规，这些类目都是构成作为个人所得税和社会保险计算基数的“工资”。实践中，存在按较低的基本工资缴交社会保险的做法，但这样的做法是不规范的。
+               </div>
+               <p><span class=labelB>3.1 员工工资</span></p>
+               <p><span><input type="radio" id="hasSalaryType" name="hasSalaryType" value=0 checked  onclick="radio_click_salary(this)"/></span>
+               <span id="third_t1">转正后</span>
+               <span>员工的月工资为：人民币<input maxlength=8 class="input40" type=text name="salary" id="salary"  onBlur="check_tsalary()" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  
+               placeholder="请填写金额"></input>元（税前）;或</span></p>
+               <p><span class=label> <input type="radio" id="hasSalaryType" name="hasSalaryType" value=1  onclick="radio_click_salary(this)"/>拆分为：</span></p>
+							 <div id="salaryDiv2" style="display:none;">
+
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="salaryType1" id="salaryType1"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="salary1" id="salary1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="salaryType2" id="salaryType2"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="salary2" id="salary2"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="salaryType3" id="salaryType3"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="salary3" id="salary3"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>
+
+							 </div>
+							 <div id="trialDiv" >
+                             <p>&nbsp;</p>
+                                        <div class=tips>
+                                        <i></i>
+                                        3.2 提示：试用期工资可低于转正后的工资，但《劳动合同法》规定最低不得低于转正后工资的80%，也不得低于当地政府规定的最低工资。
+                                        </div>
+ 										<p><span class=labelB>3.2 试用期工资</span></p>
+                                        <p><span class="labelB2">•试用期间的工资是否与转正后的工资相同？</span></p>
+                                        <p><span class=label> <input type="radio" id="hasDiffTrial" name="hasDiffTrial" value=0 checked onclick="radio_click_diff(this)"/>相同：<input type="radio" id="hasDiffTrial" name="hasDiffTrial" value=1   onclick="radio_click_diff(this)"/>不同：</span></p>
+                                        <div id="diffTrialDiv1" style ="display:none;">
+                                        <p><span class=label>试用期内:</span></p>
+ 										<p><span class=label><input type="radio" id="hasTrialSalaryType" name="hasTrialSalaryType" checked value=0  onclick="radio_click_trialsalary(this)"/>
+                                        员工的工资为：人民币<input maxlength=8 class="input40" type=text name="trialSalary" id="trialSalary"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="请填写金额" onBlur="check_tsalary()"></input>元/月（税前）； 或</span></p>
+                                        <p><span class=label> <input type="radio" id="hasTrialSalaryType" name="hasTrialSalaryType" value=1  onclick="radio_click_trialsalary(this)"/>拆分为：</span></p>
+                                    <div id="trialSalaryDiv1" style="display:none;">
+
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="trialSalaryType1" id="trialSalaryType1"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="trialSalary1" id="trialSalary1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="trialSalaryType2" id="trialSalaryType2"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="trialSalary2" id="trialSalary2"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>
+ 										<p><span class=label>•类目<input maxlength=40 class="input100" type=text name="trialSalaryType3" id="trialSalaryType3"  placeholder="请填写工资类型"></input>
+ 										 对应金额为人民币<input maxlength=8 class="input40" type=text name="trialSalary3" id="trialSalary3"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="请填写金额"></input>元/月（税前）</p>
+ 										</span></p>  
+
+
+        							 </div>
+                                  </div>
+                                     <div id="err_trialSalary" class="err_hint" style="display:none;">
+                                            错误提示
+                                     </div>
+
+
+ 							</div>
+             	<div id="trialDiv2" >
+                <p>&nbsp;</p>
+                    <div class=tips>
+                    <i></i>
+                    3.<span id="third_t3">3</span>  提示： 员工工资一般按月以现金或银行转帐的形式支付，劳动合同应明确工资支付的合理时限。
+                    </div>
+ 										<p><span class=labelB>3.</span><span id="third_3" class=labelB >3</span><span class=labelB>&nbsp;发薪日</span></p>
+                                       <p><span class="labelB2">•公司应在每月<SELECT id="salaryDay" name="salaryDay" >
+									<OPTION  value="1">1</OPTION>
+									<OPTION  value="2">2</OPTION>
+									<OPTION  value="3">3</OPTION>
+									<OPTION  value="4">4</OPTION>
+									<OPTION  value="5" selected>5</OPTION>
+									<OPTION  value="6">6</OPTION>
+									<OPTION  value="7">7</OPTION>
+									<OPTION  value="8">8</OPTION>
+									<OPTION  value="9">9</OPTION>
+									<OPTION  value="10">10</OPTION>
+									<OPTION  value="11">11</OPTION>
+									<OPTION  value="12">12</OPTION>
+									<OPTION  value="13">13</OPTION>
+									<OPTION  value="14">14</OPTION>
+									<OPTION  value="15">15</OPTION>
+									<OPTION  value="16">16</OPTION>
+									<OPTION  value="17">17</OPTION>
+									<OPTION  value="18">18</OPTION>
+									<OPTION  value="19">19</OPTION>
+									<OPTION  value="20">20</OPTION>
+									<OPTION  value="21">21</OPTION>
+									<OPTION  value="22">22</OPTION>
+									<OPTION  value="23">23</OPTION>
+									<OPTION  value="24">24</OPTION>
+									<OPTION  value="25">25</OPTION>
+									<OPTION  value="26">26</OPTION>
+									<OPTION  value="27">27</OPTION>
+									<OPTION  value="28">28</OPTION>
+									<OPTION  value="29">29</OPTION>
+									<OPTION  value="30">30</OPTION>
+									<OPTION  value="31">31</OPTION>
+									</SELECT>日前发放
+									<SELECT id="salaryMonth" name="salaryMonth" >
+									<OPTION  value="上月">上月</OPTION>
+									<OPTION  value="本月">本月</OPTION>
+									</select>工资
+               	</span></p>	
+							 </div>
+                             <p>&nbsp;</p>
+                             <div class=tips>
+                             <i></i>
+                             3.<span id="third_t4">4</span>  提示：请根据实际情况决定是否在劳动合同中明确约定奖金计算方式。我们建议除非双方对奖金有明确且长期的约定，奖金的计算方式可由公司的内部管理规章规定，以保证公司内部管理的灵活性。
+                             </div>
+               <p><span class=labelB>3.</span><span id="third_4" class=labelB >4</span><span class=labelB>&nbsp;奖金</span></p>
+               <p><span class="labelB2">•是否有要在劳动合同中明确约定的奖金计算方式？</span></p>
+               <p><input type="radio"  id="hasBonusDesc" name="hasBonusDesc" value=0 checked onclick="radio_click_bonus(this)"/>不需要</p>
+               <p><input type="radio" id="hasBonusDesc" name="hasBonusDesc" value=1   onclick="radio_click_bonus(this)"/>需要</p>
+               <div id="bonusDiv1" style="display:none;">
+ 										<p><input maxlength=300 class="input240" type=text name="bonusDesc" id="bonusDesc"  placeholder="请填写奖金的计算方式"></input></p>
+ 							 </div>
+                        
+                             <p>&nbsp;</p>
+                             <div class=tips>
+                             <i></i>
+                             3.<span id="third_t5">5</span>  提示：请根据实际情况决定是否在劳动合同中明确约定非法律强制规定的员工福利。我们建议除非双方对福利有明确且长期的约定，员工福利可由公司的内部管理规章规定，以保证公司内部管理的灵活性。
+                             </div>
+								<p><span class=labelB>3.</span><span id="third_5" class=labelB >5</span><span class=labelB>&nbsp; 福利</span></p>
+                                <p><span class="labelB2">•是否有要在劳动合同中明确约定的福利（除法律强制规定的以外）？</span></p>
+               <p><input type="radio"  id="hasBenefits" name="hasBenefits" value=0  checked onclick="radio_click_benefits(this)"/>不需要</p>
+               <p><input type="radio" id="hasBenefits" name="hasBenefits" value=1   onclick="radio_click_benefits(this)"/>需要</p>
+               <div id="benefitsDiv1" style="display:none;">
+ 										<p><input maxlength=300 class="input240" type=text name="benefits" id="benefits"  placeholder="请填写福利的内容和计算方式"></input></p>
+ 							 </div> 	
+
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+            </div>
+      <div class="page">
+                <div class=tips>
+                <i></i>
+                4 提示：《劳动合同法》对公司辞退员工的条件与方式做出了明确的规定。劳动合同中将反映这些法定情形，但不能另行约定超出法定范围的辞退事项。公司对法定的辞退情形“严重违反规章制度”（主要针对员工在受聘后的过错）和“欺诈订立劳动合同”（主要针对员工在应聘中的欺骗）可以通过例举具体情况加以明确，以避免将来不必要的争议。 我们提供了一些常见的例举情形，请公司根据实际情况加以增减。
+                </div>
+               <p><span class=labelB>4.1 例举“严重违反规章制度”情形</span></p>
+               <p><span class=labelB2>•是否要在劳动合同中例举“严重违反规章制度”的情形？</span></p>
+               <p><input type="radio" id="hasInvalidDesc" name="hasInvalidDesc" value=0  checked onclick="radio_click_invalid(this)"/>不需要</p>
+               <p><input type="radio" id="hasInvalidDesc" name="hasInvalidDesc" value=1   onclick="radio_click_invalid(this)"/>需要</p>
+               <div id="invalidDiv1" style="margin-left:2em;display:none;">
+ 										<p><span class=labelB>• “严重违反规章制度”情形包括：</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="1" checked >乙方一个月内累计旷工3天以上（含3天）或一年内累计旷工5天以上（含5天）的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="2" checked>乙方违反生产经营的规定，给甲方造成经济损失的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="3" checked>乙方严重失职，营私舞弊，给甲方造成实质性经济损失的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="4" checked>乙方违反国家法律、法规、规定等，给甲方造成经济损失的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="5" checked>	乙方发生责任事故，给甲方造成经济损失的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="6" checked>	乙方违法乱纪，损害甲方形象的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="7" checked>乙方未经甲方同意在外兼职工作（即使该工作是免费的）；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="8" checked>	乙方未经甲方同意，复制或持有甲方商业秘密的或者泄漏甲方商业秘密的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="9" checked>乙方不能胜任工作，拒绝甲方调整工作岗位或者在工作岗位上消极怠工的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="10" checked>乙方拒绝接受甲方管理的（包括不接受甲方的考勤等各项制度、工作安排的）；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="11" checked>乙方接受商业贿赂、侵占甲方财务、将甲方业务做“飞单”等损害甲方利益的行为；</span></p>
+ 										<p><span class=label><input type="checkbox" name="invalidDesc[]" value="12" >其他情形：<input maxlength=300 class="input240" type=text name="otherInvalid" id="otherInvalid"  placeholder="请填写其他严重违反规章制度情形"></input></p></span></p>
+ 										
+							 </div>
+                             <p>&nbsp;</p>
+							 <p><span class=labelB>4.2 例举“欺诈订立劳动合同”情形</span></p>
+                             <p><span class="labelB2">•是否要在劳动合同中例举“欺诈订立劳动合同”的情形？</span></p>
+               <p><input type="radio"  id="hasFakeDesc" name="hasFakeDesc" value=0 checked onclick="radio_click_fake(this)"/>不需要</p>
+               <p><input type="radio" id="hasFakeDesc" name="hasFakeDesc" value=1   onclick="radio_click_fake(this)"/>需要</p>
+               <div id="fakeDiv1" style="margin-left:2em;display:none;">
+ 										<p><span class=labelB>• “欺诈订立劳动合同”情形包括：</span></p>
+ 										<p><span class=label><input type="checkbox" name="fakeDesc[]" value="1" checked >	乙方被查在应聘时向甲方提供的其个人资料(包括但不限于：个人简历、离职证明、身份证明、户籍证明、学历证明、体检证明、各种资格职称证明）是虚假或伪造的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="fakeDesc[]" value="2" checked >	应聘前患有精神病、传染性疾病及其它严重影响工作的疾病而在应聘时未向甲方声明；</span></p>
+ 										<p><span class=label><input type="checkbox" name="fakeDesc[]" value="3" checked >	应聘前曾受到其它单位记过、留职察看、开除等处分或有经济账目未结清的、或者有吸毒等劣迹而在应聘时未向甲方声明的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="fakeDesc[]" value="4" checked >	应聘前曾被劳动教养、拘役或者依法追究刑事责任而在应聘时未向甲方声明的；</span></p>
+ 										<p><span class=label><input type="checkbox" name="fakeDesc[]" value="5" >其他情形：<input maxlength=300 class="input240" type=text name="otherFakeDesc" id="otherFakeDesc"  placeholder="请填写其他欺诈订立劳动合同情形"></input></p></span></p>
+							</div>
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+            </div>
+     <div class="page">
+            <div class=tips>
+            <i></i>
+            5.1 提示：请根据实际情况决定是否在劳动合同中对其他事项作出约定。双方的约定事项不得违反《劳动合同法》等法律法规的强制性规定。为保障公司内部管理的灵活性，建议尽量通过公司内部规章制度对其他事项进行规定。
+            </div>
+               <p><span class=labelB>5.1 其他约定</span></p>
+               <p><span class="labelB2">•是否有其他需要在劳动合同中特别约定的事项？</span></p>
+               <p><input type="radio"  id="hasOtherDesc" name="hasOtherDesc" value=0  checked onclick="radio_click_other(this)"/>没有</p>
+               <p><input type="radio" id="hasOtherDesc" name="hasOtherDesc" value=1   onclick="radio_click_other(this)"/>有</p>
+               <div id="otherDescDiv1" style="display:none">
+               			<p><span class=label>双方特别约定：<input maxlength=300 class="input240" type=text name="otherDesc" id="otherDesc"  placeholder="请填写其他特别约定事项"></input></span></p>
+               </div>
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+             </div>
+            							
+			<div class="page">
+            <div class=tips>
+            <i></i>
+            6 提示：劳动合同应明确公司与员工的身份信息。公司应在签订劳动合同前验证员工身份信息，并将身份证复印件存档。劳动合同在双方签字盖章后生效。《劳动合同法》规定劳动合同应一式两份，公司与员工各执一份。公司与员工都应妥善保管劳动合同原件。
+            </div>
+      				 <div id="corpDiv1"> 
+      				 		<p><span class=labelB>6.1 公司信息</span></p>
+      				 		<p><span class=label>公司全称：<input maxlength=180 class="input240" type=text name="corpName" id="corpName"  placeholder="请填写公司全称（同营业执照）"></input></span></p>
+      				 		<p><span class=label>注册地址：<input maxlength=180 class="input240" type=text name="corpAddr" id="corpAddr"  placeholder="请填写公司注册地址（同营业执照）"></input></span></p>
+      				 		<p><span class=label>法定代表人：<input maxlength=180 class="input240" type=text name="corpManager" id="corpManager"  placeholder="请填写公司法定代表人姓名（同营业执照）"></input></span></p>
+      				 </div>
+      				 <div id="laborDiv1 ">
+                            <p>&nbsp;</p>
+      				 		<p><span class=labelB>6.2 员工信息</span></p>
+      				 		<p><span class=label>员工姓名：<input maxlength=180 class="input240" type=text name="laborName" id="laborName"  placeholder="请填写员工姓名"></input></span></p>
+      				 		<p><span class=label>身份证号：<input maxlength=180 class="input240" type=text name="laborSsn" id="laborSsn"  placeholder="请填写员工身份证号"></input></span></p>
+      				 		<p><span class=label>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：<input maxlength=180 class="input240" type=text name="laborAddr" id="laborAddr"  placeholder="请填写员工住址"></input></span></p>
+      				 </div>  
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" id="sub" value="生成劳动合同" /> <br/>  
+                  <input type="text" class="viewUrl" id="viewUrl" placeholder="请先生成劳动合同" readonly="true" style="height:28px;width:400px;"/>
+                  <input type="button" class="next right" id="onlineview" value="预览" href=""/>
+                  <input type="button" class="next right" id="download" value="下载" aurl=""/> 
+               </div>                        
+            </div>
+		</div>
+		<div style="clear:both"></div>
+        <div id="downDiv"></div>
+	</div>
+</form><br />
+<br />
+<br />
+
+</div>
+<div id="footer">
+</div> 
+<script type="text/javascript" src="Scripts/g.__201509171502__.js"></script>
+        <script type="text/javascript" src="Scripts/config.__201509171502__.js"></script>
+        <script type="text/javascript">
+            G.use(['lib/widget/widget.js','util/log.js'], function (Widget,FdsLog) {
+                Widget.initWidgets();
+                var fdsch = "/ldht/start";
+                FdsLog.init(fdsch);
+            });
+        </script>
+<script type="text/javascript">
+
+function check_tsalary() {
+    var _salaryType = $('input[name="hasSalaryType"]:checked').val();
+    var _hasDiff = $('input[name="hasDiffTrial"]:checked').val();
+    var _salary = $("#salary").val();
+    var _trialSalary = $("#trialSalary").val();
+    var _hasTrial = $('input[name="hasTrialPeriod"]:checked').val();
+    var _trialType = $('input[name="hasTrialSalaryType"]:checked').val();
+
+    var err_str = "";
+    if (_hasTrial =="1" && _salaryType=="0" && _trialType=="0" && _hasDiff =="1") {
+        if (_trialSalary *100 < _salary * 80) {
+            err_str = "《劳动合同法》规定试用期工资最低不得低于转正后工资的80%";
+        }
+
+    } 
+    if (err_str != "") {
+        document.getElementById("err_trialSalary").style.display="";
+        document.getElementById("err_trialSalary").innerHTML = "提示：" + err_str;
+    } else {
+        document.getElementById("err_trialSalary").style.display="none";
+        document.getElementById("err_trialSalary").innerHTML = "" ;
+
+    }   
+
+}
+
+
+function check_trial() {
+        var _num = document.getElementById("fixedYear").value;
+        var _ym =  document.getElementById("yearMonth").value;
+        var _tm =  document.getElementById("trialMonth").value;
+        var months = _num;
+        if (_ym == "年")
+            months = _num *12;
+
+    var _valid = true;
+    var err_str = "";
+    if (months<12 && _tm>1) {
+        err_str = "《劳动合同法》规定合同期限3-12个月的试用期不得超过1个月";
+    }
+    if (months>=12 && months<36 && _tm>2) {
+        err_str = "《劳动合同法》规定合同期限1年-3年的试用期不得超过2个月";
+    }
+    if (months>=36 && _tm>6 ) {
+        err_str = "《劳动合同法》规定合同期限3年以上的试用期不得超过6个月";
+    }
+    if (err_str != "") {
+        document.getElementById("err_trial").style.display="";
+        document.getElementById("err_trial").innerHTML = "提示：" + err_str;
+    } else {
+        document.getElementById("err_trial").style.display="none";
+        document.getElementById("err_trial").innerHTML = "" ;
+
+    }
+
+}
+function radio_click_diff(obj){
+    var val =obj.value;
+    if (val ==0) {
+        hide("diffTrialDiv1");
+    }
+    if (val ==1) {
+        show("diffTrialDiv1");
+    }	
+    check_tsalary();
+}
+
+function radio_click_year(obj){
+    var val =obj.value;
+    if (val ==0) {
+        hide("yearDiv1");
+    }
+    if (val ==1) {
+        show("yearDiv1");
+    }	
+}
+
+	function radio_click_other(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("otherDescDiv1");
+    }
+     if (val ==1) {
+    	show("otherDescDiv1");
+    }	
+	}
+	function radio_click_fake(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("fakeDiv1");
+        //document.getElementById("wizard").style.minHeight ="900px";
+    }
+     if (val ==1) {
+    	show("fakeDiv1");
+        //document.getElementById("wizard").style.minHeight ="1050px";
+    }	
+	}
+	
+	function radio_click_invalid(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("invalidDiv1");
+        document.getElementById("wizard").style.minHeight ="1357px";
+    }
+     if (val ==1) {
+    	show("invalidDiv1");
+        document.getElementById("wizard").style.minHeight ="1357px";
+    }	
+	}
+		function radio_click_bonus(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("bonusDiv1");
+    }
+     if (val ==1) {
+    	show("bonusDiv1");
+    }	
+	}
+		function radio_click_benefits(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("benefitsDiv1");
+    }
+     if (val ==1) {
+    	show("benefitsDiv1");
+    }	
+	}
+	
+	function radio_click_trial(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("trial_time");
+        hide("err_trial");
+        hide("err_trialSalary");
+    }
+     if (val ==1) {
+    	show("trial_time");
+    }	
+	}
+
+	function radio_click_salary(obj){
+		var val =obj.value;
+    if (val ==0) {
+    	hide("salaryDiv2");
+    }
+     if (val ==1) {
+		document.getElementById("salary").value="";
+    	show("salaryDiv2");
+    }	
+    check_tsalary();
+	}
+
+	function radio_click_trialsalary(obj){
+        var val =obj.value;
+        if (val ==0) {
+            hide("trialSalaryDiv1");
+        }
+        if (val ==1) {
+            show("trialSalaryDiv1");
+            document.getElementById("trialSalary").value="";
+        }	
+        check_tsalary();
+	}
+
+	function show(did){
+		document.getElementById(did).style.display="";
+	}
+	function hide(did){
+			document.getElementById(did).style.display="none";
+	}
+
+    function reset_style(i){
+        for (var idx=0; idx<6; idx++){
+            $('[id=step]').eq(idx).removeClass("menu2_active");
+            $('[id=step]').eq(idx).removeClass("menu2_deactive");
+        }
+        for (var idx=0; idx<=i;idx++) {
+            $('[id=step]').eq(idx).addClass("menu2_active");
+        }
+        
+        for (var idx=i+1; idx<6;idx++) {
+            $('[id=step]').eq(idx).addClass("menu2_deactive");
+        }
+
+        for (var idx=0; idx<6; idx++){
+            $('[id=step_line]').eq(idx).removeClass("line_out");
+            $('[id=step_line]').eq(idx).removeClass("line_in");
+        }
+        for (var idx=0; idx<i;idx++) {
+            $('[id=step_line]').eq(idx).addClass("line_out");
+        }
+        $('[id=step_line]').eq(i).addClass("line_in");
+
+
+    }
+$(function(){
+	$("#wizard").scrollable({
+		onSeek: function(event,i){
+            reset_style(i);
+            if (i==2){
+                document.getElementById("wizard").style.minHeight ="1705px";
+            }
+            else {
+                if (i==3)
+                    document.getElementById("wizard").style.minHeight ="1357px";
+                else 
+                document.getElementById("wizard").style.minHeight ="705px";
+            }
+
+            window.scrollTo(0,0);
+            //document.getElementById('main').scrollTop =0;
+            //scroll(0,0);
+		},
+		onBeforeSeek:function(event,i){
+			if(i==2){
+				var _job = $("#job").val();
+				var _loc = $("#jobLoc").val();
+                if (_job =="" && _loc=="") {
+                    alert("请先填写员工职位和工作地点");
+                    return false;
+                }
+				if(_job==""){
+					alert("请先填写员工职位");
+					return false;
+				}
+				if(_loc==""){
+					alert("请先填写员工工作地点");
+					return false;
+				}
+
+            }
+
+            if (i==3) {
+                var _stype = $('input[name="hasSalaryType"]:checked').val();
+				var _salary = $("#salary").val();
+                if (_stype == "0") {
+                    if (_salary =="") {
+                        alert("请先填写员工工资");
+                        return false;
+                    }
+                }
+
+            }
+
+			if (i==2) {
+				//判断是否选择了试用期，决定试用期工资是否显示
+				
+				var trial = $("input[name='hasTrialPeriod']:checked").val();
+				if (trial ==0){
+					hide("trialDiv");
+                    document.getElementById('third_t1').innerHTML ='';
+                    document.getElementById('third_3').innerHTML ='2';
+                    document.getElementById('third_4').innerHTML ='3';
+                    document.getElementById('third_5').innerHTML ='4';
+
+                    document.getElementById('third_t3').innerHTML ='2';
+                    document.getElementById('third_t4').innerHTML ='3';
+                    document.getElementById('third_t5').innerHTML ='4';
+				}
+				else {
+					show("trialDiv");
+                    document.getElementById('third_t1').innerHTML ='转正后';
+                    document.getElementById('third_3').innerHTML ='3';
+                    document.getElementById('third_4').innerHTML ='4';
+                    document.getElementById('third_5').innerHTML ='5';
+
+                    document.getElementById('third_t3').innerHTML ='3';
+                    document.getElementById('third_t4').innerHTML ='4';
+                    document.getElementById('third_t5').innerHTML ='5';
+				}
+			}
+		}
+	});
+	$("#sub").click(function(){
+	    var _corp = $("#corpName").val();
+        var _labor = $("#laborName").val();
+        var err_str = "";
+        if (_corp == "" || _labor == "" ) {
+            if (_corp == "" && _labor == "")
+                err_str = "公司信息和员工信息未填写";
+            else if (_corp == "" )
+                err_str = "公司信息未填写";
+            else if (_labor == "" )
+                err_str = "员工信息未填写";
+        }
+		var data = $("form").serialize(); 
+		
+		var startYear =$("#startYear").val();
+		var startMonth =$("#startMonth").val();
+		var startDay =$("#startDay").val();
+		var fixedYear =$("#fixedYear").val();
+		var yearMonth =$("#yearMonth").val();
+		var hasTrialPeriod =$("input[name='hasTrialPeriod']:checked").val();    //是否试用
+		var trialMonth =$("#trialMonth").val();            //试用月数
+		var job =$("#job").val();                          //员工职位    
+		var jobDuty =$("#jobDuty").val();                          //从事工作   
+		var jobLoc =$("#jobLoc").val();                          //工作地点   
+		var hasSalaryType =$("input[name='hasSalaryType']:checked").val();                          //转正后还是拆分为   
+		var salary =$("#salary").val();                          //税前工资   
+		var salaryType1 =$("#salaryType1").val();                          //类目1   
+		var salary1 =$("#salary1").val();                          //工资1  
+		var salaryType2 =$("#salaryType2").val();                          //类目2
+		var salary2 =$("#salary2").val();                          //工资2
+		var salaryType3 =$("#salaryType3").val();                          //类目3
+		var salary3 =$("#salary3").val();                          //工资3
+		var hasDiffTrial =$("input[name='hasDiffTrial']:checked").val();                          //试用期工资是否相同
+		var hasTrialSalaryType =$("input[name='hasTrialSalaryType']:checked").val();                          //试用期还是拆分
+		var trialSalary =$("#trialSalary").val();                          //试用期工资
+		var trialSalaryType1 =$("#trialSalaryType1").val();                          //试用期类目1
+		var trialSalary1 =$("#trialSalary1").val();                          //试用期工资1
+		var trialSalaryType2 =$("#trialSalaryType2").val();                          //试用期类目2
+		var trialSalary2 =$("#trialSalary2").val();                          //试用期工资2
+		var trialSalaryType3 =$("#trialSalaryType3").val();                          //试用期类目3
+		var trialSalary3 =$("#trialSalary3").val();                          //试用期工资3
+		var salaryDay =$("#salaryDay").val();                          //发薪日
+		var salaryMonth =$("#salaryMonth").val();                          //上月或本月
+		var hasBonusDesc =$("input[name='hasBonusDesc']:checked").val();                          //奖金是否
+		var bonusDesc =$("#bonusDesc").val();                          //奖金计算方式
+		var hasBenefits =$("input[name='hasBenefits']:checked").val();                          //福利
+		var benefits =$("#benefits").val();                          //福利计算方式
+		var hasInvalidDesc =$("#hasInvalidDesc").val();                          //是否举例
+		//var invalidDesc =$("#invalidDesc[]").val();                          //违规情形
+		var otherInvalid =$("#otherInvalid").val();                          //4.1其他
+		var hasFakeDesc =$("#hasFakeDesc").val();                          //4.2举例
+		//var fakeDesc =$("#fakeDesc[]").val();                          //4.2情形
+		var otherFakeDesc =$("#otherFakeDesc").val();                          //4.2其他
+		var hasOtherDesc =$("input[name='hasOtherDesc']:checked").val();                          //是否有其他约定
+		var otherDesc =$("#otherDesc").val();                          //其他约定
+		var corpName =$("#corpName").val();                          //公司全称
+		var corpAddr =$("#corpAddr").val();                          //注册地址
+		var corpManager =$("#corpManager").val();                          //法定代表人
+		var laborName =$("#laborName").val();                          //员工姓名
+		var laborSsn =$("#laborSsn").val();                          //身份证号
+		var laborAddr =$("#laborAddr").val();                          //住址
+		
+        if (err_str ==""){
+        	$.isLoading({      
+        		text: "正在生成，请稍候"              		 
+			});
+        	$.ajax({
+        		url : "mbsc",
+        		data : {
+					"inputDir" : "example.doc",
+					"convertType" : "0"	,
+					"startYear" : startYear,
+        		    "startMonth" : startMonth,
+        		    "startDay" : startDay,
+        		    "fixedYear" : fixedYear,
+        		    "yearMonth" : yearMonth,
+        		    "hasTrialPeriod" : hasTrialPeriod,    //是否试用
+        		    "trialMonth" : trialMonth,           //试用月数
+        		    "job" : job,                          //员工职位    
+        		    "jobDuty" : jobDuty,                          //从事工作   
+        	        "jobLoc" : jobLoc,                          //工作地点   
+        		    "hasSalaryType" : hasSalaryType,                          //转正后还是拆分为   
+        		    "salary" : salary,                          //税前工资   
+        		    "salaryType1" : salaryType1,                          //类目1   
+        		    "salary1" : salary1,                         //工资1  
+        		    "salaryType2" : salaryType2,                          //类目2
+        		    "salary2" : salary2,                          //工资2
+        	        "salaryType3" : salaryType3,                         //类目3
+        		    "salary3" : salary3,                          //工资3
+        		    "hasDiffTrial" : hasDiffTrial,                          //试用期工资是否相同
+        		    "hasTrialSalaryType" : hasTrialSalaryType,                          //试用期还是拆分
+        	        "trialSalary" : trialSalary,                          //试用期工资
+        		    "trialSalaryType1" : trialSalaryType1,                          //试用期类目1
+        		    "trialSalary1" : trialSalary1,                          //试用期工资1
+        		    "trialSalaryType2" : trialSalaryType2,                          //试用期类目2
+        		    "trialSalary2" : trialSalary2,                          //试用期工资2
+        		    "trialSalaryType3" : trialSalaryType3,                          //试用期类目3
+        		    "trialSalary3" : trialSalary3,                          //试用期工资3
+        		    "salaryDay" : salaryDay,                          //发薪日
+        		    "salaryMonth" : salaryMonth,                          //上月或本月
+        		    "hasBonusDesc" : hasBonusDesc,                          //奖金是否
+        		    "bonusDesc" : bonusDesc,                         //奖金计算方式
+        		    "hasBenefits" : hasBenefits,                         //福利
+        		    "benefits" : benefits,                          //福利计算方式
+        		    "hasInvalidDesc" : hasInvalidDesc,                          //是否举例
+        		    //"invalidDesc" : invalidDesc[],                          //违规情形
+        		    "otherInvalid" : otherInvalid,                         //4.1其他
+        	        "hasFakeDesc" : hasFakeDesc,                          //4.2举例
+        		    //"fakeDesc" : fakeDesc[],                         //4.2情形
+        		    "otherFakeDesc" : otherFakeDesc,                          //4.2其他
+        		    "hasOtherDesc" : hasOtherDesc,                         //是否有其他约定
+        		    "otherDesc" : otherDesc,                         //其他约定
+        		    "corpName" : corpName,                          //公司全称
+        		    "corpAddr" : corpAddr,                         //注册地址
+        		    "corpManager" : corpManager,                          //法定代表人
+        		    "laborName" : laborName,                          //员工姓名
+        		    "laborSsn" : laborSsn,                          //身份证号
+        		    "laborAddr" : laborAddr  
+				},
+        		type : "post",
+        		dataType : "json",
+        		success: function(data){
+        			$.isLoading("hide");
+        			$("#viewUrl").val(data.data);
+        			//window.open(data.data,"_blank");	
+        			$("#onlineview").attr("href",""+data.data+"");
+        			$("#download").attr("aurl",""+data.docUrl+"");
+        		},
+        		error: function(data){
+        			$.isLoading("hide");
+        			alert("error");	
+        		}    
+        	})
+        }
+        else {
+            if (confirm (err_str +"，是否继续生成劳动合同?")){
+            	$.isLoading({      
+            		text: "正在生成，请稍候"              		 
+    			});
+            	$.ajax({
+            		url : "mbsc",
+            		data : {
+    					"inputDir" : "example.doc",
+    					"convertType" : "0",
+    					"startYear" : startYear,
+            		    "startMonth" : startMonth,
+            		    "startDay" : startDay,
+            		    "fixedYear" : fixedYear,
+            		    "yearMonth" : yearMonth,
+            		    "hasTrialPeriod" : hasTrialPeriod,    //是否试用
+            		    "trialMonth" : trialMonth,           //试用月数
+            		    "job" : job,                          //员工职位    
+            		    "jobDuty" : jobDuty,                          //从事工作   
+            	        "jobLoc" : jobLoc,                          //工作地点   
+            		    "hasSalaryType" : hasSalaryType,                          //转正后还是拆分为   
+            		    "salary" : salary,                          //税前工资   
+            		    "salaryType1" : salaryType1,                          //类目1   
+            		    "salary1" : salary1,                         //工资1  
+            		    "salaryType2" : salaryType2,                          //类目2
+            		    "salary2" : salary2,                          //工资2
+            	        "salaryType3" : salaryType3,                         //类目3
+            		    "salary3" : salary3,                          //工资3
+            		    "hasDiffTrial" : hasDiffTrial,                          //试用期工资是否相同
+            		    "hasTrialSalaryType" : hasTrialSalaryType,                          //试用期还是拆分
+            	        "trialSalary" : trialSalary,                          //试用期工资
+            		    "trialSalaryType1" : trialSalaryType1,                          //试用期类目1
+            		    "trialSalary1" : trialSalary1,                          //试用期工资1
+            		    "trialSalaryType2" : trialSalaryType2,                          //试用期类目2
+            		    "trialSalary2" : trialSalary2,                          //试用期工资2
+            		    "trialSalaryType3" : trialSalaryType3,                          //试用期类目3
+            		    "trialSalary3" : trialSalary3,                          //试用期工资3
+            		    "salaryDay" : salaryDay,                          //发薪日
+            		    "salaryMonth" : salaryMonth,                          //上月或本月
+            		    "hasBonusDesc" : hasBonusDesc,                          //奖金是否
+            		    "bonusDesc" : bonusDesc,                         //奖金计算方式
+            		    "hasBenefits" : hasBenefits,                         //福利
+            		    "benefits" : benefits,                          //福利计算方式
+            		    "hasInvalidDesc" : hasInvalidDesc,                          //是否举例
+            		    //"invalidDesc" : invalidDesc[],                          //违规情形
+            		    "otherInvalid" : otherInvalid,                         //4.1其他
+            	        "hasFakeDesc" : hasFakeDesc,                          //4.2举例
+            		    //"fakeDesc" : fakeDesc[],                         //4.2情形
+            		    "otherFakeDesc" : otherFakeDesc,                          //4.2其他
+            		    "hasOtherDesc" : hasOtherDesc,                         //是否有其他约定
+            		    "otherDesc" : otherDesc,                         //其他约定
+            		    "corpName" : corpName,                          //公司全称
+            		    "corpAddr" : corpAddr,                         //注册地址
+            		    "corpManager" : corpManager,                          //法定代表人
+            		    "laborName" : laborName,                          //员工姓名
+            		    "laborSsn" : laborSsn,                          //身份证号
+            		    "laborAddr" : laborAddr  
+    				},
+            		type : "post",
+            		dataType : "json",
+            		success: function(data){
+            			$.isLoading("hide");
+            			$("#viewUrl").val(data.data);
+            			$("#onlineview").attr("href",""+data.data+"");
+        			    $("#download").attr("aurl",""+data.docUrl+"");
+            		},
+            		error: function(data){
+            			$.isLoading("hide");
+            			alert("error");	
+            		}    
+            	})
+                //$("form").submit();
+            }
+        }
+	});
+	$("#onlineview").click(function(){
+		if($("#viewUrl").val()==""){
+			alert("请先生成劳动合同!");		
+		}else{
+			var ourl=$("#onlineview").attr("href")
+			window.open(ourl,"_blank");				
+		}
+	});
+	$("#download").click(function(){
+		if($("#viewUrl").val()==""){
+			alert("请先生成劳动合同!");		
+		}else{
+			var durl=$("#download").attr("aurl")
+			window.open(durl,"_blank");			
+		}
+	});
+    $("#down").click(function(){
+		var data = $("form").serialize();
+            $.post(
+                "",
+                data,       
+                function(rtn_data){
+                if(rtn_data.code == 10000){
+                    window.open(rtn_data.data,"_self");
+                }
+                else{
+                    Alert.throwErr(rtn_data.msg, form);
+                }
+                });
+	});
+
+});
+</script>
+</body>
+</html>

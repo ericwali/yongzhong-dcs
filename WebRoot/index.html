@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href="../img/favicon.ico" rel="shortcut icon" />
+<meta charset="utf-8">
+<meta name="keywords" content="文档预览、文档转换、高清文档转换、在线预览、在线阅读、永中DCS、Office文档转换、Office文档查看、Word转PDF、PDF转换" /> 
+<meta name="description"  content="永中文档在线预览软件（Document Conversion Service，简称DCS）是通过解析常用办公文档的格式，提供不同文档格式间的相互转换，实现常用格式文档的阅读等服务。" /> 
+<title>永中文档在线预览DCS</title>
+<link rel="stylesheet" href="../js/jquery-isloading/css/style.css" />
+<link rel="stylesheet" href="../css/index.css" />
+<style type="text/css">
+input[type="text"] {
+	float: left;
+}
+
+input[type="text"] ~input[type="button"] {
+	float: left;
+}
+
+.btn {
+	display: inline-block;
+	padding: 7px 12px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	-moz-user-select: none;
+}
+
+.btn-primary {
+	background-color: #7623F1;
+	color: #FFF;
+	border: 1px solid transparent;
+	font-size: 0.9em;
+	height: 2.8em;
+	width: 8em;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out 0s;
+}
+
+.title_span {
+	font-weight: bold;
+}
+</style>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.introduce {
+	font-family: "黑体";
+	color: #000000;
+}
+
+.p1 {
+	margin: 99px 0px 0px 10px;
+}
+
+.p2 {
+	margin: 139px 0px 0px 20px;
+}
+
+.p4:first-letter {
+	font-size: 60px;
+}
+
+.container-index {
+	box-shadow: 0 0 10px 5px #888;
+	align-content: center;
+}
+
+.div_insert1 {
+	min-height: 450px;
+	padding: 100px 0px 100px 50px;
+	background-color: #eeeeee;
+}
+
+.div_insert2 {
+	height: 397px;
+	background-color: #ffffff;
+}
+
+.div_insert3 {
+	text-align: center;
+	min-height: 200px;
+	background-color: #eeeeee;
+}
+
+.div_insert4 {
+	height: 405px;
+	text-align: right;
+	background-color: #ffffff;
+}
+
+.div_insert5 {
+	height: 527px;
+	background-color: #eeeeee;
+}
+
+.div_insert6 {
+	padding: 40px 10px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+.div_left {
+	float: left;
+}
+
+.div_right {
+	float: left;
+}
+
+.img_left {
+	max-width: 550px;
+}
+
+.img_left2 {
+	width: 596px;
+}
+
+.img_left3 {
+	width: 600px;
+	margin: 50px 133px 100px 0;
+}
+
+.img_right4 {
+	width: 607px;
+}
+
+.img_left5 {
+	width: 666px;
+	margin: 58px 133px 100px 76px;
+}
+</style>
+<script src="../js/respond.js"></script>
+<!–[if lt IE9]>
+<style type="text/css">
+article, aside, dialog, footer, header, section, footer, nav, figure,
+	menu {
+	display: block;
+}
+</style>
+<script>
+	(function() {
+		if (!
+		/*@cc_on!@*/
+		0)
+			return;
+		var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video"
+				.split(', ');
+		var i = e.length;
+		while (i--) {
+			document.createElement(e[i]);
+		}
+	})()
+</script>
+<![endif]–>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?ce65e1932ac6585a98512ca76696d57f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<nav class="header-menu-nav">
+				<div class="logo">
+					<a href="/"><img src="../img/ow.jpg" style="border: none;" /></a>
+				</div>
+				<div class="quick-menu">
+                	<a href="http://www.yozodcs.com" target="_blank">新版</a>
+                	
+					<ul>
+						<li class="nav-current"><a href="index.html">概览</a></li>
+						<li><a href="fileconvert.html">介绍</a></li>
+						<li><a href="examples.html">示例</a></li>
+						<li><a href="help.html">文档</a></li>
+						<li><a href="http://qa.yozosoft.com" target="_blank">问答</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<section class="body_content">
+		<div class="container container-index">
+			<div class="div_insert1">
+				<div class="div_left">
+					<img class="img_left" src="../img/1.png" />
+				</div>
+				<div class="div_right">
+					<p class="introduce p1" style="font-size: 20px;">
+						你用过邮箱的预览功能吗？ <br />很多时候都是DCS在默默帮您。 <br />
+						DCS，每天轻松支持千万级的用户使用邮件预览。 <br />邮件预览，不是DCS的全部！
+					</p>
+
+				</div>
+			</div>
+			<div class="div_insert2">
+				<div class="div_left">
+					<img class="img_left2" src="../img/2.jpg" />
+				</div>
+				<div class="div_right">
+					<p class="introduce p2" style="font-size: 20px;">
+						阅读在线Office文档怎么办？下载？存储？再阅读？ <br />手机阅读在线Office文档！ <br />因下载而烦恼等待！流量爆表了！着急！
+						<br />手机木马、病毒随文档下载而无孔不入， <br />你的财产、隐私受到威胁，你还敢吗？！
+					</p>
+				</div>
+			</div>
+			<div class="div_insert3">
+				<div style="height: 50px;"></div>
+				<p class="introduce" style="font-size: 40px;">DCS解决所有问题，让您尽享安全自由</p>
+				<p class="introduce">DCS快速解析常用办公文档，提供不同文档格式间的互转，</p>
+				<p class="introduce">把Office文档原样输出html，图片等，即点即得、无需下载、保护文档隐私，</p>
+				<p class="introduce">快速高效，轻松实现Office文档在线安全阅读。</p>
+				<img class="img_left3" src="../img/3.png" />
+			</div>
+			<div class="div_insert4">
+				<div class="div_left"
+					style="width: 532px; margin-top: 100px; margin-right: 30px;">
+					<p class="introduce p4" style="font-size: 20px;">享轻松，在线阅读如此轻松</p>
+					<p class="introduce" style="font-size: 20px;">无论是在桌面还是手机上，快速阅读在线文档！</p>
+					<p class="introduce" style="font-size: 20px;">不止要效率，要的是自由没烦恼！</p>
+					<p class="introduce" style="font-size: 20px;">是想要的 更是享受的！</p>
+				</div>
+				<div class="div_right">
+					<img class="img_right4" src="../img/4.jpg" />
+				</div>
+			</div>
+			<div class="div_insert5">
+				<div class="div_left">
+					<img class="img_left5" src="../img/5.png" />
+				</div>
+				<div class="div_right"
+					style="margin-top: 150px; width: 250px; ">
+					<p class="introduce p4" style="font-size: 20px; line-height: 7pt;">得安全，保护文档隐私</p>
+					<p class="introduce" style="font-size: 20px; line-height: 7pt;">无需下载，节省时间与流量</p>
+					<p class="introduce" style="font-size: 20px; line-height: 7pt;">杜绝病毒木马对手机的侵害</p>
+					<p class="introduce" style="font-size: 20px; line-height: 7pt;">安全保障了！流量节省了！</p>
+				</div>
+			</div>
+			<div class="div_insert6">
+				<p class="introduce" style="font-size: 50px;">他们已经在用了！</p> 
+				<img style="width: 850px; margin-top: 30px" src="../img/6.jpg" />
+			</div>
+		</div>
+	</section>
+		<!--页脚-->
+	<footer class="foot">
+		<div style="padding-top: 10px;">联系电话：13485056205（倪先生）</div>
+		<div style="padding-top: 10px; text-align: center">
+			<a href="mailto:nzq@yozosoft.com" ><span>邮 箱：
+					nzq@yozosoft.com</span> </a>
+		</div>
+		<div style="padding-top: 10px; text-align: center">
+			<a href="termsofuse.html" target="_blank"><span>使用条款</span> </a>
+		</div>
+		<div style="padding-top: 10px; text-align: center">无锡永中软件有限公司
+			苏ICP备10095690号-5</div>
+	</footer>
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258858790'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258858790%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"187.5"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script src="../js/qqjs.js"></script>
+</body>
+
+</html>

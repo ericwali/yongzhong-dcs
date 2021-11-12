@@ -1,0 +1,43 @@
+@import url( reset.css );
+@import url( global.css );
+@import url( head.css );
+@import url( foot.css );
+.container {
+	margin: 0px auto; width: 1000px;
+}
+.singlePage {
+	border: 1px solid rgb(220, 221, 221); border-image: none;
+}
+.user {
+	padding: 30px 60px;
+}
+.user h3 {
+	padding: 10px 0px 20px; font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå"; font-size: 24px; border-bottom-color: rgb(239, 239, 239); border-bottom-width: 1px; border-bottom-style: solid; position: relative;
+}
+.user .formbox {
+	margin: 0px auto; padding-top: 20px;
+}
+.user .formbox th {
+	padding: 6px 0px;
+}
+.user .formbox td {
+	padding: 6px 0px;
+}
+.user .formbox th {
+	text-align: right; color: rgb(102, 102, 102); padding-right: 2em; font-size: 14px;
+}
+.user .btn_submit {
+	background: url("../images/user/btn_login.jpg") no-repeat; border: currentColor; border-image: none; width: 152px; height: 41px; color: rgb(255, 255, 255); font-family: "Î¢ÈíÑÅºÚ", "ËÎÌå"; font-size: 18px; cursor: pointer;
+}
+.user .link_register {
+	right: 10px; bottom: 15px; font-family: "ËÎÌå"; font-size: 14px; font-weight: normal; position: absolute;
+}
+.user .link_register a:link {
+	color: rgb(255, 0, 0);
+}
+.user .link_register a:visited {
+	color: rgb(255, 0, 0);
+}
+.user .link_register a:hover {
+	text-decoration: underline;
+}

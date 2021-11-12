@@ -1,0 +1,129 @@
+
+body{ background:#ffffff url(BG.jpg) no-repeat center top;}
+
+.font_n{ font-weight:normal;}
+.font_b{ font-weight:bold;}
+
+.fl{ float:left;}
+.fr{ float:right;}
+
+.white{ color:#ffffff;}
+.white a:link{ color:#ffffff;}
+.white a:visited{ color:#ffffff;}
+.white a:hover{ color:#ffffff;}
+.white a:active{ color:#ffffff;}
+
+.grey{ color:#999999;}
+.grey a:link{ color:#999999;}
+.grey a:visited{ color:#999999;}
+.grey a:hover{ color:#999999;}
+.grey a:active{ color:#999999;}
+
+.w737{
+	width:737px;
+	overflow:hidden;
+}
+.w254{
+	width:254px;
+	overflow:hidden;
+}
+.lh18{
+line-height:18px;
+}
+.lh20{
+line-height:20px;
+}
+.lh22{
+line-height:22px;
+}
+.lh23{
+line-height:23px;
+}
+.lh24{
+line-height:24px;
+}
+.lh25{
+line-height:25px;
+}
+.lh26{
+line-height:26px;
+}
+.font12{ font-size:12px;}
+.font13{ font-size:13px;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.clearfix{
+overflow:hidden;
+zoom:1
+}
+.mgt10{ margin-top:10px;}
+.tex_cen{
+text-align:center;
+}
+.pie{
+behavior: url(/static/pie/PIE.htc);
+z-index:10	
+}
+
+/*分页代码*/
+.list_page{height: 30px;padding: 30px 0 20px;text-align: center;}
+.list_page span{margin-left: 11px;display: inline-block;width: 30px;height: 30px;background:url(../images/global/list_page_bg.jpg) no-repeat left top;color: #7f7f7f;font-size: 14px;font-weight: bold;line-height: 30px;text-align: center;vertical-align: middle;cursor: pointer;overflow:hidden}
+.list_page span a{color: #7f7f7f;display: block;}
+.list_page span a:hover{color: #fff;}
+.list_page span:hover,.list_page span.active{background:url(../images/global/list_page_bg_selected.jpg) no-repeat left top;color: #fff;}
+.list_page span img{float: left;}
+.list_page .gopage{width:35px}
+.list_page input{border: medium none;width: 35px !important;height: 30px;background:url(../images/global/list_page_turn.jpg) no-repeat left top;line-height: 30px;text-align: center;vertical-align: middle;}
+.list_page .page_text,.list_page .page_text:hover{width:50px;height:30px;line-height:30px;font-size:14px;font-weight:bold;background:none;color:#7f7f7f;cursor:default}
+.list_page span.page_prev a,.list_page span.page_next a{line-height:100px;}
+.list_page span.page_prev{background:url(../images/global/list_page_prev.jpg) no-repeat left top;}
+.list_page span.page_prev.disabled{background:url(../images/global/list_page_prev_no.jpg) no-repeat left top;}
+.list_page span.page_next{background:url(../images/global/list_page_next.jpg) no-repeat left top;}
+.list_page span.page_next.disabled{background:url(../images/global/list_page_next_no.jpg) no-repeat left top;}
+.list_page span.page_prev.disabled a,.list_page span.page_next.disabled a{cursor:default}
+/*分页代码 end*/
+
+
+/*from group*/
+.from_group{ vertical-align:middle}
+.from_group input{ margin:0; padding:0}
+.from_group th,.from_group td{ padding:5px}
+.from_group td em{ margin-left:0.5em; color:#F00}
+.from_group input[type="text"],.from_group input[type="password"]{
+    font-size: 14px;
+    height: 22px;
+    line-height: 1.5;
+    padding: 2px 3px;
+    vertical-align: middle;
+	border:1px solid #d6d6d6;
+	box-shadow:inset 3px 3px 3px #f7f7f7;
+	}
+.from_group .input1{
+    font-size: 14px;
+    height: 22px;
+    line-height: 1.5;
+    padding: 2px 3px;
+    vertical-align: middle;
+	border:1px solid #d6d6d6;
+	box-shadow:inset 2px #f7f7f7;
+	}
+.form-inline{ display:inline-block;*display:inline;	zoom:1;}
+.form-inline li{display:inline-block;margin:0 0.2em;_margin:0 0.2em; *display:inline;zoom:1;vertical-align:middle}
+.from_group textarea{ padding:5px}
+.from_group td em {
+    color: #f00;
+    margin-left: 0.5em;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]{ float:left; padding:0; margin:0; margin-left:-20px}
+/*.radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline{ margin-left:20px}*/
+.radio-inline, .checkbox-inline {
+    cursor: pointer;
+    display: inline-block;
+	*line-height:20px;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+.checkbox-inline label,.radio-inline label{ display:inline-block;padding-left: 20px; vertical-align:middle;cursor: pointer;}

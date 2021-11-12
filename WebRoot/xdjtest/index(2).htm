@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0060)http://xdj.wuxi.gov.cn/fzlm/hdjlgny/hygl/yhdldck/index.shtml -->
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<TITLE>用户登录</TITLE>   <LINK href="index(2)_files/user.css" rel="stylesheet"
+                            type="text/css">
+<SCRIPT language="javascript" src="index(2)_files/jquery.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT language="javascript" src="index(2)_files/jquery.tab.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT language="javascript" src="index(2)_files/jquery.roll.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT language="javascript" src="index(2)_files/jquery.tree.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT language="javascript" src="index(2)_files/global.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?bad4e5d6909841d7a2c6dc32e62b1ae4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</SCRIPT>
+   
+<SCRIPT language="javascript" type="text/javascript">     
+$.getUrlParam = function(name) {
+    		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+   	var r = window.location.search.substr(1).match(reg);
+   	if (r != null)
+   	return unescape(r[2]);
+   	return null;
+    } 
+if($.getUrlParam('logback')) {
+	parent.location.href = parent.location.href;
+}   
+String.prototype.Trim = function() 
+{ 
+	return this.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+ $(function() {
+            $.ajax({
+             url:"http://login.wuxi.gov.cn:8080/intertidwebapp/member/checkLogin",
+             type:"get",
+            dataType:"jsonp",
+            jsonp : "callback",
+             cache: false,
+             success:function(data){
+              if(data!=null){
+               var success = jQuery.parseJSON(data).success;
+               
+               	$('#casUrl').val(jQuery.parseJSON(data).casUrl);
+              }
+             },
+           error: function(XMLHttpRequest, textStatus, errorThrown) {
+        	 var msg = XMLHttpRequest.responseText;
+            	$('#casUrl').val("http://ggfw.wuxi.gov.cn/sso");
+           }
+           });   
+ 
+        });
+      
+   function isNull(str) { 
+	if (str == ""){ 
+		return true;
+	} 
+	var regu = "^[ ]+$"; 
+	var re = new RegExp(regu); 
+	return re.test(str); 
+} 
+  
+    
+    //登录
+   function login(){
+var name = $("#username").val().Trim();
+	var password = $("#password").val().Trim();
+	var mess = "";
+	
+	//验证姓名
+	if(name.length <= 0){
+		mess += "请输入用户名\n";
+	}
+	
+	//验证姓名
+	if(password.length < 5 || password.length > 30){
+		mess += "密码长度为5-30个字符\n";
+	}
+  
+
+    if(mess.length > 0) {
+		alert(mess);
+		return;
+    }
+    
+     $('#service').val("http://login.wuxi.gov.cn:8080/intertidwebapp/member/casLogin?url="+window.location.href +"&param=login.wuxi.gov.cn:8080&logback=true");
+    $('#myLocalService').val("http://login.wuxi.gov.cn:8080/intertidwebapp/member/casLogin?url="+window.location.href +"&param=login.wuxi.gov.cn:8080&logback=true");
+	$('#loginform').attr("action",$('#casUrl').val()+"/noflow");
+    
+    
+    $('#loginform').submit();
+	
+}
+  </SCRIPT>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.18283"></HEAD> 
+<BODY style="background: none;">
+<DIV class="user" style="padding: 20px 30px;">
+<H3>用户登录<SPAN class="link_register"><A id="regNew" href="http://ggfw.wuxi.gov.cn/wx_portal/public/index/register.jsp" 
+target="_blank">注册新用户</A></SPAN></H3>
+<DIV class="user_Register from_group formbox">
+<FORM id="loginform" action="" method="post"><INPUT id="casUrl" type="hidden">   
+     <INPUT name="service" id="service" type="hidden">        <INPUT name="renew" id="renew" type="hidden" value="false"> 
+       <INPUT id="casUrl" type="hidden">        <INPUT name="myLocalService" id="myLocalService" type="hidden"> 
+            
+<TABLE class="table2" style="line-height: 28px; font-size: 12px;" border="0" 
+cellspacing="2" cellpadding="0">
+  <TBODY>
+  <TR>
+    <TH style="width: 40%;">用户名： </TH>
+    <TD><INPUT name="username" class="input1" id="username" style="width: 200px;" type="text" maxlength="20"> 
+              <FONT style="color: red;">*</FONT>&nbsp;&nbsp; <SPAN></SPAN>       
+    </TD></TR>
+  <TR>
+    <TH>密码： </TH>
+    <TD><INPUT name="password" class="input1" id="password" style="width: 200px;" type="password"> 
+              <FONT style="color: red;">*</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD><INPUT class="btn_submit" onclick="javascript:login();" type="button" value="立即登录"><SPAN 
+      style="margin-left: 2em;"><A href="http://ggfw.wuxi.gov.cn/wx_portal/public/index/findpwd.jsp" 
+      target="_blank">忘记密码？</A></SPAN></TD></TR></TBODY></TABLE></FORM></DIV></DIV></BODY></HTML><!-- Generated By TurboECM v2.1.5 2016-02-25 09:27:09 -->

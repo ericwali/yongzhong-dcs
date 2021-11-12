@@ -1,0 +1,42 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, p, blockquote, th, td {
+margin:0;
+padding:0;
+}
+body {
+font-family: "宋体", Arial, Helvetica, sans-serif;
+font-size:12px;
+text-align:left;
+color:#4f4f4f;
+}
+a:link, a:visited {
+color:#4f4f4f;
+text-decoration:none;
+}
+a:hover{
+color:#EB0101;
+text-decoration:none;
+}
+fieldset, img {
+border:none;
+}
+legend {
+display:none;
+}
+img {
+vertical-align:top;
+}
+em {
+font-style:normal;
+}
+li {
+list-style:none;
+}
+h1, h2 {
+font-size:14px;
+}
+h3, h4, h5, h6{
+	font-size:12px;
+}
+input, button, textarea, select {
+*font-size:100%;
+}
